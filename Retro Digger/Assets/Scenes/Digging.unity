@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7859d4a45da46044fb7867932f7d51f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingManager
-  MaxDirtLevel: 1
+  MaxDirtLevel: 3
   MaxDirtSpotsPerLevel: 3
   CurrentTool:
     Level: 1
@@ -259,6 +259,13 @@ MonoBehaviour:
   - Level: 1
     DirtPrefabs:
     - {fileID: 7031107077538549209, guid: 0a7dcc3857d9b12418cc45de52effd21, type: 3}
+    - {fileID: 7031107077538549209, guid: 032cb9a3cf07d5641bc7d082b7442208, type: 3}
+    - {fileID: 7031107077538549209, guid: fe04cccaa7979b1479e0cb3050302ded, type: 3}
+  - Level: 2
+    DirtPrefabs:
+    - {fileID: 7031107077538549209, guid: 9d4a607c22f3a2041bea1700813e4b62, type: 3}
+    - {fileID: 7031107077538549209, guid: 7f61be5c24250b844bd4dd0b80ec5118, type: 3}
+    - {fileID: 7031107077538549209, guid: 328798940b5ebf84e991bb8d29b5c0bb, type: 3}
   DiggingArea: {fileID: 577824090}
 --- !u!1 &514493335
 GameObject:
