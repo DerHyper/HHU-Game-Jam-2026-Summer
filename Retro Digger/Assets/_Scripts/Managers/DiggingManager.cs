@@ -6,6 +6,7 @@ public class DiggingManager : MonoBehaviour {
     public static DiggingManager Instance { get; private set; }
     [SerializeField] public Tool CurrentTool = null;
     [SerializeField] public List<Tool> CollectedTools = null;
+    [SerializeField] public List<DiggingLayer> DiggingLayers = null;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -34,5 +35,24 @@ public class DiggingManager : MonoBehaviour {
             return 0;
         }
         return CurrentTool.Level;
+    }
+
+    public void RemoveDiggingLayer(DiggingLayer layer)
+    {
+        DiggingLayers.Remove(layer);
+        Destroy(layer.gameObject);
+        if (DiggingLayers.Count == 0)
+        {
+            Debug.Log("All digging layers removed!");
+            EndDigging();
+        }
+    }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    public void EndDigging()
+    {
+        throw new System.NotImplementedException("TODO");
     }
 }

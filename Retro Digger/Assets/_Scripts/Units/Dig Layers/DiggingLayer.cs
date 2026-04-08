@@ -46,7 +46,7 @@ public class DiggingLayer : MonoBehaviour, IPointerClickHandler
         if (CurrentHealth > 0) return;
         
         Debug.Log("Layer dug through!");
-        Destroy(gameObject);
+        DiggingManager.Instance.RemoveDiggingLayer(this);
     }
 
     private void CheckDamage()
