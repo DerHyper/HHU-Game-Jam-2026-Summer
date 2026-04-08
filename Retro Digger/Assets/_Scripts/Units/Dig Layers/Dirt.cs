@@ -1,9 +1,10 @@
 using System;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DiggingLayer : MonoBehaviour, IPointerClickHandler
+public class Dirt : MonoBehaviour, IPointerClickHandler
 {
     public int HealthAverage = 10;
     public int HealthDeviation = 1;
@@ -11,11 +12,23 @@ public class DiggingLayer : MonoBehaviour, IPointerClickHandler
     public int CurrentHealth = 10;
     public int ToolLevelRequired = 1;
     public Sprite[] Particles;
+    public Sprite sprite;
 
     private void Start()
     {
+        UpdateSprite();
         UpdateCollider();
         SetHealth();
+    }
+
+    private void UpdateSprite()
+    {
+        var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+        }
+        spriteRenderer.sprite = sprite;
     }
 
     private void SetHealth()
