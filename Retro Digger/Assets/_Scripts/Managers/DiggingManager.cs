@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DiggingManager : MonoBehaviour {
     public static DiggingManager Instance { get; private set; }
-    public int MaxDirtLevel = 1;
     public int MaxDirtSpotsPerLevel = 3;
     [SerializeField] public Tool CurrentTool = null;
     [SerializeField] public List<Tool> CollectedTools = null;
@@ -14,8 +13,8 @@ public class DiggingManager : MonoBehaviour {
     /// </summary>
     [SerializeField] public List<DirtLevel> DirtPrefabs;
     [SerializeField] private Collider2D DiggingArea;
-    
-    public void SpawnDirtSpots()
+
+    public void SpawnDirtSpots(int MaxDirtLevel = 1)
     {
         for (int level = 0; level < MaxDirtLevel && level < DirtPrefabs.Count; level++)
         {
