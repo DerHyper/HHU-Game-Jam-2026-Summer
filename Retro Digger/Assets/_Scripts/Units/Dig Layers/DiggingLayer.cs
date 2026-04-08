@@ -10,6 +10,7 @@ public class DiggingLayer : MonoBehaviour, IPointerClickHandler
     public int CurrentMaxHealth = 10;
     public int CurrentHealth = 10;
     public int ToolLevelRequired = 1;
+    public Sprite[] Particles;
 
     private void Start()
     {
@@ -54,16 +55,19 @@ public class DiggingLayer : MonoBehaviour, IPointerClickHandler
         if (toolLevel < ToolLevelRequired)
         {
             Debug.Log("Tool level too low to dig this layer!");
+            VFXManager.Instance.CreateMicroExplosion(InputManager.Instance.GetMouseWorldPosition(), Particles);
             return;
         }
         else if (toolLevel > ToolLevelRequired)
         {
             Debug.Log("Tool level too high to dig this layer!");
+            VFXManager.Instance.CreateBigExplosion(InputManager.Instance.GetMouseWorldPosition(), Particles);
             return;
         }
         else
         {
             DoDamage();
+            VFXManager.Instance.CreateSmallExplosion(InputManager.Instance.GetMouseWorldPosition(), Particles);
         }
     }
 
