@@ -84,7 +84,7 @@ public class AudioManager : MonoBehaviour
         pitchTimer.Start();
     }
 
-    public void PlayOncePitchedRandom(AudioClip clip, float volume)
+    public void PlayOncePitchedRandom(AudioClip clip, float volume = 0.5f)
     {
         float pitch = UnityEngine.Random.Range(stdPitch - randomPitchRange, stdPitch + randomPitchRange);
         PlayOnce(clip, volume, pitch);

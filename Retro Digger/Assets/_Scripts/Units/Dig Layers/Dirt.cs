@@ -13,6 +13,7 @@ public class Dirt : MonoBehaviour, IPointerClickHandler
     public int ToolLevelRequired = 1;
     public Sprite[] Particles;
     public Sprite sprite;
+    public AudioClip sfxDig, sfxHitTooLow, sfxHitTooHigh;
 
     private void Start()
     {
@@ -70,18 +71,21 @@ public class Dirt : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log("Tool level too low to dig this layer!");
             VFXManager.Instance.CreateMicroExplosion(InputManager.Instance.GetMouseWorldPosition(), Particles);
+            AudioManager.Instance.PlayOncePitchedRandom(sfxHitTooLow);
             return;
         }
         else if (toolLevel > ToolLevelRequired)
         {
             Debug.Log("Tool level too high to dig this layer!");
             VFXManager.Instance.CreateBigExplosion(InputManager.Instance.GetMouseWorldPosition(), Particles);
+            AudioManager.Instance.PlayOncePitchedRandom(sfxHitTooHigh);
             return;
         }
         else
         {
             DoDamage();
             VFXManager.Instance.CreateSmallExplosion(InputManager.Instance.GetMouseWorldPosition(), Particles);
+            AudioManager.Instance.PlayOncePitchedRandom(sfxDig);
         }
     }
 
