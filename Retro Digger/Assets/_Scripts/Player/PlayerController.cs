@@ -39,9 +39,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 input = move.action.ReadValue<Vector3>();
         // half the speed when moving diagonally to prevent faster movement
-        Vector3 moveDir = input.x != 0 && input.z != 0
-            ? new(input.x * .5F, 0, input.z * .5F)
-            : new(input.x, 0, input.z);
+        var moveDir = Vector3.ClampMagnitude(new Vector3(input.x, 0, input.z), 1f);
         rb.linearVelocity = speed * Time.deltaTime * moveDir;
 
         if (sr != null)
