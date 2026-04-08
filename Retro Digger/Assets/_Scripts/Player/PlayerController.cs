@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = new(input.x, 0, input.z);
         rb.linearVelocity = moveDir * speed * Time.deltaTime;
 
-        sr.flipX = input.x == 0 ? sr.flipX : input.x < 0;
+        if (sr != null)
+            sr.flipX = input.x == 0 ? sr.flipX : input.x < 0;
     }
 }
