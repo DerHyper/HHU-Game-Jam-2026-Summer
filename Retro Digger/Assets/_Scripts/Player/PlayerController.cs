@@ -9,13 +9,17 @@ public class PlayerController : MonoBehaviour
     public LayerMask terrainLayer;
     public Rigidbody rb;
     public SpriteRenderer sr;
+    public GameObject playerBody;
 
     public InputActionReference move;
+    public InputActionReference space;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+        space.action.performed += _ => CastRay();
     }
 
     // Update is called once per frame
@@ -34,12 +38,38 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 input = move.action.ReadValue<Vector3>();
-        Vector3 moveDir = input.x > 0 && input.z > 0
+        // half the speed when moving diagonally to prevent faster movement
+        Vector3 moveDir = input.x != 0 && input.z != 0
             ? new(input.x * .5F, 0, input.z * .5F)
             : new(input.x, 0, input.z);
-        rb.linearVelocity = moveDir * speed * Time.deltaTime;
+        rb.linearVelocity = speed * Time.deltaTime * moveDir;
 
         if (sr != null)
             sr.flipX = input.x == 0 ? sr.flipX : input.x < 0;
+        if (playerBody != null && moveDir != Vector3.zero)
+            playerBody.transform.localRotation = Quaternion.LookRotation(moveDir);
+    }
+
+    void CastRay()
+    {
+        Collider collider;
+        float rayDistance = 2f;
+
+        Vector3 rayOrigin = transform.position + Vector3.up * 0.5f;
+        Vector3 rayDirection = playerBody != null
+            ? playerBody.transform.forward
+            : transform.forward;
+
+        Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
+        if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, rayDistance)
+            && (collider = hit.collider.GetComponent<Collider>()) != null)
+        {
+            collider.OnTriggerEnter(null);
+            Debug.Log("Ray hit: " + hit.collider.name);
+        }
+        else
+        {
+            Debug.Log("Ray did not hit anything.");
+        }
     }
 }
