@@ -34,7 +34,9 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 input = move.action.ReadValue<Vector3>();
-        Vector3 moveDir = new(input.x, 0, input.z);
+        Vector3 moveDir = input.x > 0 && input.z > 0
+            ? new(input.x * .5F, 0, input.z * .5F)
+            : new(input.x, 0, input.z);
         rb.linearVelocity = moveDir * speed * Time.deltaTime;
 
         if (sr != null)
