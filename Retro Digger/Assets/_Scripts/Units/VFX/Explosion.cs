@@ -15,6 +15,8 @@ public class Explosion : MonoBehaviour
     private float _lifetime = 2f;
     [SerializeField]
     private float _fragmentCount = 2f;
+    [SerializeField]
+    private int _spriteLayer = 10;
     private float _explosionSize = 0.4f;
 
     public void Init(float energy, Sprite[] fragments, int fragmentCount)
@@ -37,7 +39,9 @@ public class Explosion : MonoBehaviour
             GameObject instantiatedFragment = new GameObject("ExplosionFragment");
             instantiatedFragment.transform.position = randomStartPosition;
             instantiatedFragment.transform.parent = gameObject.transform;
-            instantiatedFragment.AddComponent<SpriteRenderer>().sprite = fragment;
+            SpriteRenderer spriteRenderer = instantiatedFragment.AddComponent<SpriteRenderer>();
+            spriteRenderer.sprite = fragment;
+            spriteRenderer.sortingOrder = _spriteLayer;
             instantiatedFragment.AddComponent<Rigidbody2D>().AddForce(distanceFromCenter * _energy);
             instantiatedFragment.AddComponent<ExplosionFragment>();
         }

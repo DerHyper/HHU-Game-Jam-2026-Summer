@@ -29,6 +29,7 @@ public class Dirt : MonoBehaviour, IPointerClickHandler
             spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         }
         spriteRenderer.sprite = sprite;
+        spriteRenderer.sortingOrder = ToolLevelRequired; // Ensure layers with higher tool requirements are rendered above those with lower requirements
     }
 
     private void SetHealth()
