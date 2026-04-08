@@ -25,21 +25,6 @@ public class DatabaseManager : MonoBehaviour
         GlobalDataService = InitOrFallback($"{Application.persistentDataPath}/RetroDb.Global.db");
     }
 
-    void Update()
-    {
-        LocalDataService.ReadAsync<TestData>("test").ContinueWith(task =>
-        {
-            if (task.IsCompletedSuccessfully)
-            {
-                TestData data = task.Result;
-                Debug.Log($"Read from LocalDataService: Name={data.Name}, Value={data.Value}");
-            }
-            else
-            {
-                Debug.LogError($"Failed to read from LocalDataService: {task.Exception}");
-            }
-        });
-    }
 
     private IDataService InitOrFallback(string dbPath)
     {
@@ -53,10 +38,4 @@ public class DatabaseManager : MonoBehaviour
             return new JsonDataService();
         }
     }
-}
-
-internal class TestData
-{
-    public string Name { get; set; }
-    public int Value { get; set; }
 }
