@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.RenderGraphModule;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
         space.action.started += _ => OnStartDigging();
         space.action.canceled += _ => OnStopDigging();
     }
