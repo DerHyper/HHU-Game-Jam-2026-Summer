@@ -15,32 +15,17 @@ public class RockVariantSelector : MonoBehaviour
     [SerializeField] private List<VariantEntry> variants = new();
     [SerializeField] private int selectedIndex = 0;
 
-    [SerializeField] private GameObject editorPreviewBlock;
-
     private GameObject activeInstance;
     private int activeIndex = -1;
 
     private void Awake()
     {
-        if (editorPreviewBlock != null)
-        {
-            foreach (var r in editorPreviewBlock.GetComponentsInChildren<Renderer>(true))
-                r.enabled = false; // hides mesh/sprite, keeps colliders active
-        }
-
         ApplyVariant();
     }
 
     private void OnValidate()
     {
         selectedIndex = Mathf.Max(0, selectedIndex);
-
-        if (!Application.isPlaying && editorPreviewBlock != null)
-        {
-            foreach (var r in editorPreviewBlock.GetComponentsInChildren<Renderer>(true))
-                r.enabled = true;
-        }
-
         if (Application.isPlaying)
             ApplyVariant();
     }
