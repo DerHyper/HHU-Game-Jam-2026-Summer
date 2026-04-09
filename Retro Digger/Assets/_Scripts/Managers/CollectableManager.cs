@@ -25,7 +25,12 @@ public class CollectableManager : MonoBehaviour {
         CurrentCollectable = Instantiate(GetRandomLevelCollectable(level), CollectablePosition);
         CurrentCollectable.transform.parent = CollectablePosition;
         CurrentCollectable.transform.position = CollectablePosition.position;
-        CurrentCollectable.AddComponent<SpriteRenderer>().sprite = CurrentCollectable.Sprite;
+        var spriteRenderer = CurrentCollectable.GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = CurrentCollectable.AddComponent<SpriteRenderer>();
+        }
+        spriteRenderer.sprite = CurrentCollectable.Sprite;
     }
 
 
@@ -54,5 +59,15 @@ public class CollectableManager : MonoBehaviour {
     {
         if (Collectables.Count == 0) return null;
         return Collectables[Random.Range(0, Collectables.Count)];
+    }
+
+    public Collider2D GetCollectableArea()
+    {
+        var collider = CurrentCollectable.GetComponent<Collider2D>();
+        if (collider == null)
+        {
+            collider = CurrentCollectable.gameObject.AddComponent<BoxCollider2D>();
+        }
+        return collider;
     }
 }

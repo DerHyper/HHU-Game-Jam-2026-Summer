@@ -9,6 +9,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] public List<Tool> CollectedTools = null;
     [SerializeField] private GameObject inventoryUI;
     [SerializeField] private GameObject inventoryElementPrefab;
+    [SerializeField] private List<Collectable> colletedCollectables = new();
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -55,5 +56,11 @@ public class InventoryManager : MonoBehaviour
             return 0;
         }
         return CurrentTool.Level;
+    }
+
+    public void CollectCollectable(Collectable collectable)
+    {
+        colletedCollectables.Add(collectable);
+        collectable.Collect();
     }
 }

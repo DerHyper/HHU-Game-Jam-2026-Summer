@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DiggingManager : MonoBehaviour {
     public static DiggingManager Instance { get; private set; }
@@ -10,7 +13,7 @@ public class DiggingManager : MonoBehaviour {
     /// List of Dirt Prefab Lists, where each list corresponds to a dirt level. The first list is for level 1 dirt, the second for level 2, and so on.
     /// </summary>
     [SerializeField] public List<DirtLevel> DirtPrefabs;
-    [SerializeField] private Collider2D DiggingArea;
+    [SerializeField] public Transform DirtParent;
 
     public void SpawnDirtSpots(int MaxDirtLevel = 1)
     {
@@ -20,10 +23,11 @@ public class DiggingManager : MonoBehaviour {
             for (int i = 0; i < spotsToSpawn; i++)
             {
                 var dirtSpot = Instantiate(DirtPrefabs[level].GetRandom());
-                dirtSpot.transform.parent = DiggingArea.transform;
+                var diggingArea = CollectableManager.Instance.GetCollectableArea();
+                dirtSpot.transform.parent =  DirtParent;
                 dirtSpot.transform.position = new Vector2(
-                    Random.Range(DiggingArea.bounds.min.x, DiggingArea.bounds.max.x),
-                    Random.Range(DiggingArea.bounds.min.y, DiggingArea.bounds.max.y)
+                    Random.Range(diggingArea.bounds.min.x, diggingArea.bounds.max.x),
+                    Random.Range(diggingArea.bounds.min.y, diggingArea.bounds.max.y)
                 );
                 var dirt = dirtSpot.GetComponent<Dirt>();
                 CurrentDirtSpots.Add(dirt);
