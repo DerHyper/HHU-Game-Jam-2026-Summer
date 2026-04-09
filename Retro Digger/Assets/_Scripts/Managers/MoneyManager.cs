@@ -27,12 +27,28 @@ public interface IMoneyManager
     /// </summary>
     /// <param name="playerName">The name of the player to associate with the score</param>
     Task FinishGameAsync(string playerName);
+
+    event Action<int> OnMoneyChanged;
 }
 
 public sealed partial class MoneyManager : IMoneyManager
 {
     public int CurrentScore { get; private set; } = 0;
-    public int CurrentMoney { get; private set; } = 0;
+
+    #region Money Management
+    private int _currentMoney = 0;
+    public int CurrentMoney
+    {
+        get => _currentMoney;
+        private set
+        {
+            _currentMoney = value;
+            OnMoneyChanged?.Invoke(_currentMoney);
+        }
+    }
+    public event Action<int> OnMoneyChanged;
+    #endregion
+
 
     public void AddMoneyAndScore(int amount)
     {
