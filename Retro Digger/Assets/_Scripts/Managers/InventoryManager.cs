@@ -40,7 +40,7 @@ public class InventoryManager : MonoBehaviour
         foreach (Tool tool in CollectedTools.Where(t => _toolService.HasToolWithName(t.Name)))
         {
             GameObject uiElement = Instantiate(inventoryElementPrefab, inventoryUI.transform);
-            uiElement.GetComponent<ToolButton>().UpdateUI(tool);
+            uiElement.GetComponent<ToolButton>().UpdateUI(tool.WithValuesFrom(_toolService.GetCurrentTool(tool.Name)));
         }
     }
 
