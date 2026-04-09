@@ -60,6 +60,14 @@ MonoBehaviour:
     localPositionOffset: {x: 0, y: 0, z: 0}
     localEulerOffset: {x: 0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
+  - prefab: {fileID: 919132149155446097, guid: 0075cbb452b219044a0419a3a6e1b122, type: 3}
+    localPositionOffset: {x: 0, y: 0, z: 0}
+    localEulerOffset: {x: 0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+  - prefab: {fileID: 919132149155446097, guid: 2b03d63d3ee014d4794de2331d149436, type: 3}
+    localPositionOffset: {x: 0, y: 0, z: 0}
+    localEulerOffset: {x: 0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
   selectedIndex: 0
 --- !u!114 &2107672482012058061
 MonoBehaviour:
