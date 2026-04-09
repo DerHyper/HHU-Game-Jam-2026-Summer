@@ -33,10 +33,10 @@ public interface IMoneyManager
 
 public sealed partial class MoneyManager : IMoneyManager
 {
-    public int CurrentScore { get; private set; } = 0;
+    public int CurrentScore { get; private set; } = 75;
 
     #region Money Management
-    private int _currentMoney = 0;
+    private int _currentMoney = 75;
     public int CurrentMoney
     {
         get => _currentMoney;

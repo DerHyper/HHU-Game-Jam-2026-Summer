@@ -22,5 +22,8 @@ public class MoneyCounter : MonoBehaviour
 
     }
 
-    void UpdateMoneyText(int money) => _moneyText.text = $"{money}p";
+    void UpdateMoneyText(int money)
+    {
+        _moneyText.text = $"{money}p";
+    }
 }

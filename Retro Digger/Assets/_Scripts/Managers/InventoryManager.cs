@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -10,6 +12,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject inventoryUI;
     [SerializeField] private GameObject inventoryElementPrefab;
     [SerializeField] private List<Collectable> colletedCollectables = new();
+
+    private readonly ToolService _toolService = ToolService.Instance;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -29,12 +34,11 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(inventoryUI.transform.GetChild(i).gameObject);
         }
-        
+
         // Generate new
         CollectedTools.Sort((a, b) => a.UiOrder.CompareTo(b.UiOrder));
-        for (int i = 0; i < CollectedTools.Count; i++)
+        foreach (Tool tool in CollectedTools.Where(t => _toolService.HasToolWithName(t.Name)))
         {
-            var tool = CollectedTools[i];
             GameObject uiElement = Instantiate(inventoryElementPrefab, inventoryUI.transform);
             uiElement.GetComponent<ToolButton>().UpdateUI(tool);
         }

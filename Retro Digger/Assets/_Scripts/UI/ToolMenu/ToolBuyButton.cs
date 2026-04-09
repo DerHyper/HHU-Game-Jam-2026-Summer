@@ -1,29 +1,26 @@
+using TMPro;
 using UnityEngine;
 
 public class ToolBuyButton : MonoBehaviour
 {
     public string toolName;
-    public int toolCost;
 
+    public TMP_Text priceText;
 
-
+    private readonly ToolService _toolService = ToolService.Instance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        var toolModel = _toolService.GetToolModel(toolName);
+
         var button = GetComponent<UnityEngine.UI.Button>();
 
-        button.interactable = MoneyManager.Instance.CurrentMoney >= toolCost;
+        button.interactable = _toolService.CanBuyTool(toolName);
         button.onClick.AddListener(() =>
         {
-            if (MoneyManager.Instance.CurrentMoney >= toolCost)
-            {
-                MoneyManager.Instance.PayMoney(toolCost);
-                var tool = InventoryManager.Instance.CollectedTools.Add(
-                    new Tool(1, 10);
-                );
-                InventoryManager.Instance.AddTool(tool);
-            }
+            if (_toolService.BuyTool(toolName))
+                button.interactable = false;
         });
     }
 

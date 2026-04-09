@@ -1604,8 +1604,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1832836108463100683, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1519157390}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3814435045348238035, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1252640924}
   m_SourcePrefab: {fileID: 100100000, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
+--- !u!1 &963508047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3814435045348238035, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
+  m_PrefabInstance: {fileID: 963508046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1095076008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,6 +1910,20 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1832836108463100683, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
   m_PrefabInstance: {fileID: 963508046}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1252640924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963508047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e339dd717f54a4faaf99470bba38cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolBuyButton
+  toolName: Chisel
+  priceText: {fileID: 1991128465}
 --- !u!1 &1257785989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,7 +2021,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 1.171875
+  orthographic size: 1.1171875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3238,8 +3260,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1832836108463100683, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1948230059}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3814435045348238035, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1916906578}
   m_SourcePrefab: {fileID: 100100000, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
+--- !u!1 &1916906577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3814435045348238035, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
+  m_PrefabInstance: {fileID: 1916906576}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1916906578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916906577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e339dd717f54a4faaf99470bba38cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolBuyButton
+  toolName: Hammer
+  priceText: {fileID: 1991128465}
 --- !u!1 &1924178769
 GameObject:
   m_ObjectHideFlags: 0
@@ -3636,8 +3680,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1832836108463100683, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1368297010}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3814435045348238035, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2136372818}
   m_SourcePrefab: {fileID: 100100000, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
+--- !u!114 &1991128465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8915571792457564292, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
+  m_PrefabInstance: {fileID: 1991128464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &1991128466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3814435045348238035, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
+  m_PrefabInstance: {fileID: 1991128464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2011133036
 GameObject:
   m_ObjectHideFlags: 0
@@ -4064,6 +4127,20 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1832836108463100683, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
   m_PrefabInstance: {fileID: 1991128464}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2136372818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991128466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e339dd717f54a4faaf99470bba38cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolBuyButton
+  toolName: Brush
+  priceText: {fileID: 1991128465}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
