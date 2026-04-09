@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LevelManager : MonoBehaviour
+public sealed class LevelManager : MonoBehaviour
 {
     [Serializable]
     public class LevelData
