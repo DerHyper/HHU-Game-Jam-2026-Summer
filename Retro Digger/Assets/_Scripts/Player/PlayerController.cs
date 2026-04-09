@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     /// Represents whether the player is currently digging. 
     /// </summary>
     private bool _isDigging = false;
+    void SetIsDigging(bool value) => animator.SetBool("IsDigging", _isDigging = value);
 
     void Start()
     {
@@ -87,8 +88,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Ray did not hit anything.");
         }
 
-        animator.SetBool("IsDigging", _isDigging = true);
+        SetIsDigging(true);
     }
 
-    void OnStopDigging() => animator.SetBool("IsDigging", _isDigging = false);
+    void OnStopDigging() => SetIsDigging(false);
 }
