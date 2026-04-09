@@ -423,15 +423,20 @@ MonoBehaviour:
   DirtPrefabs:
   - Level: 1
     DirtPrefabs:
-    - {fileID: 7031107077538549209, guid: 0a7dcc3857d9b12418cc45de52effd21, type: 3}
     - {fileID: 7031107077538549209, guid: 032cb9a3cf07d5641bc7d082b7442208, type: 3}
     - {fileID: 7031107077538549209, guid: fe04cccaa7979b1479e0cb3050302ded, type: 3}
+    - {fileID: 7031107077538549209, guid: 0a7dcc3857d9b12418cc45de52effd21, type: 3}
   - Level: 2
     DirtPrefabs:
-    - {fileID: 7031107077538549209, guid: 9d4a607c22f3a2041bea1700813e4b62, type: 3}
     - {fileID: 7031107077538549209, guid: 7f61be5c24250b844bd4dd0b80ec5118, type: 3}
     - {fileID: 7031107077538549209, guid: 328798940b5ebf84e991bb8d29b5c0bb, type: 3}
-  DirtParent: {fileID: 0}
+    - {fileID: 7031107077538549209, guid: 9d4a607c22f3a2041bea1700813e4b62, type: 3}
+  - Level: 3
+    DirtPrefabs:
+    - {fileID: 7031107077538549209, guid: bf54dcd5a9389f84fb71c8db54edf132, type: 3}
+    - {fileID: 7031107077538549209, guid: 3e0b80a7b96ed054a92d67c4668a4ae6, type: 3}
+    - {fileID: 7031107077538549209, guid: 02dfc0316ce417940a4187a6e08b1487, type: 3}
+  DirtParent: {fileID: 577824089}
 --- !u!1 &514493335
 GameObject:
   m_ObjectHideFlags: 0

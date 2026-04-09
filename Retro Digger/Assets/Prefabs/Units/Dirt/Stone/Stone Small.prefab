@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4337498407588242632}
   - component: {fileID: 1184618633940340141}
   m_Layer: 0
-  m_Name: Dust Test
+  m_Name: Stone Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1348743102, guid: b456077697190e641a32a2b495b6daf5, type: 3}
+  m_Sprite: {fileID: -360139345, guid: b456077697190e641a32a2b495b6daf5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,11 +108,11 @@ MonoBehaviour:
   HealthDeviation: 5
   CurrentMaxHealth: 10
   CurrentHealth: 10
-  ToolLevelRequired: 1
+  ToolLevelRequired: 3
   Particles:
   - {fileID: 21300000, guid: cd221d2235472c94491e607ae42942dd, type: 3}
   - {fileID: 21300000, guid: d69b2503b822f4c3a95386e4bc0c8668, type: 3}
-  sprite: {fileID: -1348743102, guid: b456077697190e641a32a2b495b6daf5, type: 3}
+  sprite: {fileID: -360139345, guid: b456077697190e641a32a2b495b6daf5, type: 3}
   sfxDig: {fileID: 0}
   sfxHitTooLow: {fileID: 0}
   sfxHitTooHigh: {fileID: 0}

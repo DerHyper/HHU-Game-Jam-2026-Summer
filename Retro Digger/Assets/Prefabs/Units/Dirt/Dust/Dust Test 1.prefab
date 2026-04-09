@@ -82,8 +82,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.51886785, g: 0.9933298, b: 1, a: 1}
+  m_Sprite: {fileID: 1233439489, guid: b456077697190e641a32a2b495b6daf5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   Particles:
   - {fileID: 21300000, guid: cd221d2235472c94491e607ae42942dd, type: 3}
   - {fileID: 21300000, guid: d69b2503b822f4c3a95386e4bc0c8668, type: 3}
-  sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 1233439489, guid: b456077697190e641a32a2b495b6daf5, type: 3}
   sfxDig: {fileID: 0}
   sfxHitTooLow: {fileID: 0}
   sfxHitTooHigh: {fileID: 0}
