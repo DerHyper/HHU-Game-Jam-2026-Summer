@@ -3,54 +3,71 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    /// <summary>
+    /// The movement speed of the player.
+    /// </summary>
     public float speed;
-    public float groundDist;
 
-    public LayerMask terrainLayer;
+    /// <summary>
+    /// The rigid body of the player.
+    /// </summary>
     public Rigidbody rb;
-    public SpriteRenderer sr;
+    /// <summary>
+    /// The Player's body GameObject.
+    /// </summary>
     public GameObject playerBody;
 
     public InputActionReference move;
+    /// <summary>
+    /// The input action for digging. We use the "started" and "canceled" events. 
+    /// </summary>
     public InputActionReference space;
+
+    /// <summary>
+    /// The player character's animator, used to trigger running/digging animations.
+    /// </summary>
+    public Animator animator;
+
+    /// <summary>
+    /// Represents whether the player is currently digging. 
+    /// </summary>
+    private bool _isDigging = false;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
-        space.action.performed += _ => CastRay();
+        space.action.started += _ => OnStartDigging();
+        space.action.canceled += _ => OnStopDigging();
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        Vector3 castPos = transform.position;
-        castPos.y += 1;
+        Movement();
+    }
 
-        if (Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, terrainLayer)
-            && hit.collider != null)
-        {
-            Vector3 movePos = transform.position;
-            movePos.y = hit.point.y + groundDist;
-            transform.position = movePos;
-        }
+    void Movement()
+    {
+        // No movement while digging, but still allow turning and similar. 
+        Vector3 input = _isDigging
+            ? Vector3.zero
+            : move.action.ReadValue<Vector3>();
+        animator.SetBool("IsRunning", input is not { x: 0, z: 0 });
 
-        Vector3 input = move.action.ReadValue<Vector3>();
         var moveDir = Vector3.ClampMagnitude(new Vector3(input.x, 0, input.z), 1f);
         rb.linearVelocity = speed * Time.deltaTime * moveDir;
 
-        if (sr != null)
-            sr.flipX = input.x == 0 ? sr.flipX : input.x < 0;
         if (playerBody != null && moveDir != Vector3.zero)
         {
+            // reverse look direction to match sprite facing, and rotate 180° to match art orientation
             Quaternion look = Quaternion.LookRotation(moveDir, Vector3.up);
             playerBody.transform.localRotation = look * Quaternion.Euler(0f, 180F, 0f);
         }
     }
 
-    void CastRay()
+    void OnStartDigging()
     {
         Collider collider;
         float rayDistance = .75f;
@@ -69,5 +86,9 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Ray did not hit anything.");
         }
+
+        animator.SetBool("IsDigging", _isDigging = true);
     }
+
+    void OnStopDigging() => animator.SetBool("IsDigging", _isDigging = false);
 }
