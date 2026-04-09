@@ -63,4 +63,10 @@ public class InventoryManager : MonoBehaviour
         colletedCollectables.Add(collectable);
         collectable.Collect();
     }
+
+    public void CollectTool(Tool tool)
+    {
+        CollectedTools.Add(tool);
+        UpdateInventoryUI();
+    }
 }

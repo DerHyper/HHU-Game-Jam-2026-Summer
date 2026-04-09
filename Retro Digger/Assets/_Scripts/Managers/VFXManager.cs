@@ -1,5 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using Unity.Cinemachine;
+using System.Diagnostics;
+using DG.Tweening;
 
 public class VFXManager : MonoBehaviour {
     public static VFXManager Instance { get; private set; }
@@ -9,6 +12,13 @@ public class VFXManager : MonoBehaviour {
     public int SmallExplosionFragmentCount = 10;
     public float BigExplosionEnergy = 1f;
     public int BigExplosionFragmentCount = 50;
+    public float CameraShakeIntensitySmall = 0.5f;
+    public float CameraShakeIntensityMedium = 1f;
+    public float CameraShakeIntensityBig = 5f;
+    public float CameraShakeDurationSmall = 0.1f;
+    public float CameraShakeDurationMedium = 0.2f;
+    public float CameraShakeDurationBig = 0.5f;
+    [SerializeField] private CinemachineBasicMultiChannelPerlin cameraNoise;
 
     private void Awake()
     {
@@ -25,6 +35,7 @@ public class VFXManager : MonoBehaviour {
     public void CreateSmallExplosion(Vector2 position, Sprite[] fragments)
     {
         CreateExplosion(position, fragments, SmallExplosionEnergy, SmallExplosionFragmentCount);
+        CameraShake(CameraShakeIntensitySmall, CameraShakeDurationSmall);
     }
 
     public void CreateMicroExplosion(Vector2 position, Sprite[] fragments)
@@ -35,6 +46,7 @@ public class VFXManager : MonoBehaviour {
     public void CreateBigExplosion(Vector2 position, Sprite[] fragments)
     {
         CreateExplosion(position, fragments, BigExplosionEnergy, BigExplosionFragmentCount);
+        CameraShake(CameraShakeIntensityBig, CameraShakeDurationBig);
     }
 
     public void CreateExplosion(Vector2 position, Sprite[] fragments, float energy, int fragmentCount)
@@ -47,6 +59,25 @@ public class VFXManager : MonoBehaviour {
 
     public void CameraShake(float intensity, float duration)
     {
-        // Implement camera shake logic here
+        // Animate the camera noise amplitude to create a shake effect
+        DOTween.To(
+            () => cameraNoise.AmplitudeGain,      // Getter
+            x => cameraNoise.AmplitudeGain = x,   // Setter
+            intensity,                            // Goal
+            duration                              // Duration
+        )
+        .SetEase(Ease.OutQuad)
+        .SetLoops(2, LoopType.Yoyo)
+        .OnComplete(() => cameraNoise.AmplitudeGain = 0); // Ensure it resets to 0 after shaking
+
+        DOTween.To(
+            () => cameraNoise.FrequencyGain,      // Getter
+            x => cameraNoise.FrequencyGain = x,   // Setter
+            intensity,                            // Goal
+            duration                              // Duration
+        )
+        .SetEase(Ease.OutQuad)
+        .SetLoops(2, LoopType.Yoyo)
+        .OnComplete(() => cameraNoise.FrequencyGain = 0); // Ensure it resets to 0 after shaking
     }
 }

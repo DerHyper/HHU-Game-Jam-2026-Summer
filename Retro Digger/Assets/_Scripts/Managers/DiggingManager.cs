@@ -17,20 +17,24 @@ public class DiggingManager : MonoBehaviour {
 
     public void SpawnDirtSpots(int MaxDirtLevel = 1)
     {
+        int spriteLayer = 1;
         for (int level = 0; level < MaxDirtLevel && level < DirtPrefabs.Count; level++)
         {
             int spotsToSpawn = Random.Range(1, MaxDirtSpotsPerLevel + 1);
+            
             for (int i = 0; i < spotsToSpawn; i++)
             {
                 var dirtSpot = Instantiate(DirtPrefabs[level].GetRandom());
                 var diggingArea = CollectableManager.Instance.GetCollectableArea();
-                dirtSpot.transform.parent =  DirtParent;
+                dirtSpot.transform.parent = DirtParent;
+                dirtSpot.GetComponent<SpriteRenderer>().sortingOrder = spriteLayer;
                 dirtSpot.transform.position = new Vector2(
                     Random.Range(diggingArea.bounds.min.x, diggingArea.bounds.max.x),
                     Random.Range(diggingArea.bounds.min.y, diggingArea.bounds.max.y)
                 );
                 var dirt = dirtSpot.GetComponent<Dirt>();
                 CurrentDirtSpots.Add(dirt);
+                spriteLayer++;
             }
         }
     }

@@ -20,6 +20,7 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
     {
         UpdateSprite();
         UpdateCollider();
+        UpdateUi();
     }
 
     public abstract void Collect();
@@ -36,14 +37,21 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
     public void TakeDamage(int damage)
     {
         if (damage <= 0) return;
-        Debug.Log($"Collectable {Name} took {damage} damage, current health: {CurrentHealth}/{MaxHealth}");
         AudioManager.Instance.PlayOnce(DamageSound);
         VFXManager.Instance.CreateBigExplosion(transform.position, DamageParticles);
         CurrentHealth = math.clamp(CurrentHealth - damage, 0, MaxHealth);
+        Debug.Log($"Collectable {Name} took {damage} damage, current health: {CurrentHealth}/{MaxHealth}");
+        UpdateUi();
         if (CurrentHealth <= 0)
         {
             DestroyGame();
         }
+    }
+
+    private void UpdateUi()
+    {
+        UiManager.Instance.SetHealthText(GetHealthPercentage());
+        UiManager.Instance.SetValueText(GetCurrentValue());
     }
 
     public int GetHealthPercentage()
@@ -53,7 +61,7 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
 
     public int GetCurrentValue()
     {
-        return Mathf.RoundToInt(GetHealthPercentage() * MaxValue);
+        return Mathf.RoundToInt((float) GetHealthPercentage() / 100f * (float) MaxValue);
     }
 
     public void OnPointerClick(PointerEventData eventData)
