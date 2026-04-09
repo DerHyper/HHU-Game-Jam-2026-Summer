@@ -48,10 +48,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Videogame
   Name: Fifa 23
   Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  MaxValue: 0
+  MaxValue: 5
   Level: 1
   MaxHealth: 10
   CurrentHealth: 10
+  CollectSound: {fileID: 0}
+  DamageSound: {fileID: 0}
+  DestroySound: {fileID: 0}
+  DamageParticles:
+  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!61 &3856112570102476102
 BoxCollider2D:
   m_ObjectHideFlags: 0

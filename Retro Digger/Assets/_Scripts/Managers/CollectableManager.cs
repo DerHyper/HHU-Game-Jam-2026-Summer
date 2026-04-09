@@ -70,4 +70,9 @@ public class CollectableManager : MonoBehaviour {
         }
         return collider;
     }
+
+    internal void TakeDamage(int levelDifference)
+    {
+        CurrentCollectable.TakeDamage(levelDifference);
+    }
 }

@@ -11,6 +11,10 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
     public int Level;
     public int MaxHealth = 10;
     public int CurrentHealth = 10;
+    public AudioClip CollectSound;
+    public AudioClip DamageSound;
+    public AudioClip DestroySound;
+    public Sprite[] DamageParticles;
 
     void Start()
     {
@@ -21,11 +25,20 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
     public abstract void Collect();
     public void DestroyGame()
     {
-        throw new System.NotImplementedException();
+        AudioManager.Instance.PlayOnce(DestroySound);
+        VFXManager.Instance.CreateBigExplosion(transform.position, DamageParticles);
+        VFXManager.Instance.CreateBigExplosion(transform.position, DamageParticles);
+        VFXManager.Instance.CreateBigExplosion(transform.position, DamageParticles);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        DiggingManager.Instance.EndDiggingLost();
     }
 
     public void TakeDamage(int damage)
     {
+        if (damage <= 0) return;
+        Debug.Log($"Collectable {Name} took {damage} damage, current health: {CurrentHealth}/{MaxHealth}");
+        AudioManager.Instance.PlayOnce(DamageSound);
+        VFXManager.Instance.CreateBigExplosion(transform.position, DamageParticles);
         CurrentHealth = math.clamp(CurrentHealth - damage, 0, MaxHealth);
         if (CurrentHealth <= 0)
         {
@@ -45,7 +58,7 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        TakeDamage(InventoryManager.Instance.GetToolDamage() * InventoryManager.Instance.GetToolLevel());
+        TakeDamage(InventoryManager.Instance.GetToolLevel());
     }
 
     private void UpdateCollider()

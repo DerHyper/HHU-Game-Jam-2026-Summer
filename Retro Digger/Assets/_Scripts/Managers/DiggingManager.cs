@@ -54,14 +54,23 @@ public class DiggingManager : MonoBehaviour {
         if (CurrentDirtSpots.Count == 0)
         {
             Debug.Log("All digging layers removed!");
-            EndDigging();
+            EndDiggingWon();
         }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void EndDiggingWon()
+    {
+        InventoryManager.Instance.CollectCollectable(CollectableManager.Instance.CurrentCollectable);
+        throw new System.NotImplementedException("TODO");
     }
     
     /// <summary>
     /// 
     /// </summary>
-    public void EndDigging()
+    public void EndDiggingLost()
     {
         throw new System.NotImplementedException("TODO");
     }

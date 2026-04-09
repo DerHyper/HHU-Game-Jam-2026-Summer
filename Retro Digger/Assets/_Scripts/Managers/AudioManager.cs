@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private float pitchResetTime = 1f;
     private float stdPitch = 1;
     private float currentPitch = 1;
-    private FixedTimer pitchTimer;
+    private FixedTimer pitchTimer = new();
 
     private void Awake()
     {
@@ -90,12 +90,7 @@ public class AudioManager : MonoBehaviour
         PlayOnce(clip, volume, pitch);
     }
 
-    public void PlayOnce(AudioClip clip, float volume)
-    {
-        PlayOnce(clip, volume, stdPitch);
-    }
-
-    public void PlayOnce(AudioClip clip, float volume, float pitch)
+    public void PlayOnce(AudioClip clip, float volume = 0.5f, float pitch = 1f)
     {
         if (clip == null) return;
         GameObject sfx = new GameObject("SFX");

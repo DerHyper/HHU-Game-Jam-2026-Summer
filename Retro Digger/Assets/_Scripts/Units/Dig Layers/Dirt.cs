@@ -79,6 +79,8 @@ public class Dirt : MonoBehaviour, IPointerClickHandler
             Debug.Log("Tool level too high to dig this layer!");
             VFXManager.Instance.CreateBigExplosion(InputManager.Instance.GetMouseWorldPosition(), Particles);
             AudioManager.Instance.PlayOncePitchedRandom(sfxHitTooHigh);
+            CollectableManager.Instance.TakeDamage(toolLevel - ToolLevelRequired);
+            DoDamage();
             return;
         }
         else
@@ -86,6 +88,7 @@ public class Dirt : MonoBehaviour, IPointerClickHandler
             DoDamage();
             VFXManager.Instance.CreateSmallExplosion(InputManager.Instance.GetMouseWorldPosition(), Particles);
             AudioManager.Instance.PlayOncePitchedRandom(sfxDig);
+            return;
         }
     }
 
