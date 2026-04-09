@@ -886,6 +886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectableManager
   Collectables:
   - {fileID: 3494587270811218961, guid: 376853b1ee7a5744595d7712ad76bdff, type: 3}
+  - {fileID: 3494587270811218961, guid: 20585521ffa7e254c988587d7d26e817, type: 3}
   CollectablePosition: {fileID: 2099971890}
   CurrentCollectable: {fileID: 0}
 --- !u!1 &821269860
@@ -1317,7 +1318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingDebugger
   MaxDirtLevel: 3
-  LootLevel: 1
+  LootLevel: 3
 --- !u!1 &1257785989
 GameObject:
   m_ObjectHideFlags: 0
