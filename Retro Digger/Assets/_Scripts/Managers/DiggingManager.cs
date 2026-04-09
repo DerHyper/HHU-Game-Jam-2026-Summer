@@ -5,7 +5,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class DiggingManager : MonoBehaviour {
+public class DiggingManager : MonoBehaviour
+{
     public static DiggingManager Instance { get; private set; }
     public int MaxDirtSpotsPerLevel = 3;
     [SerializeField] public List<Dirt> CurrentDirtSpots = null;
@@ -21,7 +22,7 @@ public class DiggingManager : MonoBehaviour {
         for (int level = 0; level < MaxDirtLevel && level < DirtPrefabs.Count; level++)
         {
             int spotsToSpawn = Random.Range(1, MaxDirtSpotsPerLevel + 1);
-            
+
             for (int i = 0; i < spotsToSpawn; i++)
             {
                 var dirtSpot = Instantiate(DirtPrefabs[level].GetRandom());
@@ -67,10 +68,14 @@ public class DiggingManager : MonoBehaviour {
     /// </summary>
     public void EndDiggingWon()
     {
-        InventoryManager.Instance.CollectCollectable(CollectableManager.Instance.CurrentCollectable);
+        Collectable currentCollectable = CollectableManager.Instance.CurrentCollectable;
+
+        InventoryManager.Instance.CollectCollectable(currentCollectable);
+        MoneyManager.Instance.AddMoneyAndScore(currentCollectable.GetCurrentValue());
+
         throw new System.NotImplementedException("TODO");
     }
-    
+
     /// <summary>
     /// 
     /// </summary>
