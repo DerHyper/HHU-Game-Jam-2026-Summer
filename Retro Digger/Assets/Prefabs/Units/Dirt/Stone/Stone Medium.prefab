@@ -110,8 +110,10 @@ MonoBehaviour:
   CurrentHealth: 10
   ToolLevelRequired: 3
   Particles:
-  - {fileID: 21300000, guid: cd221d2235472c94491e607ae42942dd, type: 3}
-  - {fileID: 21300000, guid: d69b2503b822f4c3a95386e4bc0c8668, type: 3}
+  - {fileID: 1685901988, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}
+  - {fileID: 1626913434, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}
+  - {fileID: 1795574246, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}
+  - {fileID: -1828628734, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}
   sprite: {fileID: -2040112492, guid: b456077697190e641a32a2b495b6daf5, type: 3}
   sfxDig: {fileID: 0}
   sfxHitTooLow: {fileID: 0}
