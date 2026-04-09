@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public sealed class ToolModels
+public sealed record ToolModels
 {
     public static readonly ToolModels Hammer = new("Hammer", 1, 1);
     public static readonly ToolModels Chisel = new("Chisel", 1, 1);
@@ -18,4 +18,11 @@ public sealed class ToolModels
         DiggingDamage = diggingDamage;
         PointPrice = pointPrice;
     }
+
+
+    public ToolModels Upgrade() => this with
+    {
+        DiggingDamage = DiggingDamage + 1,
+        PointPrice = PointPrice + 25,
+    };
 }
