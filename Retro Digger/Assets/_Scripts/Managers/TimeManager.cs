@@ -30,6 +30,9 @@ public class TimeManager : MonoBehaviour
             return;
         }
 
+        TimeSpan remainingTime = dayDuration - dayTimer.Elapsed;
+        UiManager.Instance.SetTimerText(remainingTime.ToString(@"mm\:ss"));
+
         if (dayTimer.Elapsed >= dayDuration)
         {
             EndDay();
@@ -44,6 +47,7 @@ public class TimeManager : MonoBehaviour
 
     public void StartDay()
     {
+        dayTimer.Restart();
         dayTimer.Restart();
     }
 }
