@@ -56,7 +56,10 @@ MonoBehaviour:
   DamageSound: {fileID: 0}
   DestroySound: {fileID: 0}
   DamageParticles:
-  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -1121669995, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}
+  - {fileID: 663368515, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}
+  - {fileID: 1062921806, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}
+  - {fileID: 1424653461, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}
 --- !u!61 &3856112570102476102
 BoxCollider2D:
   m_ObjectHideFlags: 0
