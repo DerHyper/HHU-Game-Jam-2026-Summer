@@ -44,20 +44,21 @@ public class PlayerController : MonoBehaviour
         if (sr != null)
             sr.flipX = input.x == 0 ? sr.flipX : input.x < 0;
         if (playerBody != null && moveDir != Vector3.zero)
-            playerBody.transform.localRotation = Quaternion.LookRotation(moveDir);
+        {
+            Quaternion look = Quaternion.LookRotation(moveDir, Vector3.up);
+            playerBody.transform.localRotation = look * Quaternion.Euler(0f, 180F, 0f);
+        }
     }
 
     void CastRay()
     {
         Collider collider;
-        float rayDistance = 2f;
+        float rayDistance = .75f;
 
         Vector3 rayOrigin = transform.position + Vector3.up * 0.5f;
-        Vector3 rayDirection = playerBody != null
-            ? playerBody.transform.forward
-            : transform.forward;
+        Vector3 rayDirection = playerBody.transform.TransformDirection(Vector3.back);
 
-        Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
+        Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red, 60 * 20);
         if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, rayDistance)
             && (collider = hit.collider.GetComponent<Collider>()) != null)
         {
