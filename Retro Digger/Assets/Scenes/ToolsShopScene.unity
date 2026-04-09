@@ -1596,7 +1596,7 @@ PrefabInstance:
       objectReference: {fileID: -470068766, guid: 839272344a9185b49a739c8e18c93c2f, type: 3}
     - target: {fileID: 9221721608384257966, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
       propertyPath: m_Name
-      value: Text
+      value: ChiselText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1923,7 +1923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolBuyButton
   toolName: Chisel
-  priceText: {fileID: 1991128465}
+  priceText: {fileID: 1519157391}
 --- !u!1 &1257785989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,7 +2021,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 1.1171875
+  orthographic size: 1.171875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3252,7 +3252,7 @@ PrefabInstance:
       objectReference: {fileID: -470068766, guid: 839272344a9185b49a739c8e18c93c2f, type: 3}
     - target: {fileID: 9221721608384257966, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
       propertyPath: m_Name
-      value: Hammer
+      value: HammerText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3283,7 +3283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolBuyButton
   toolName: Hammer
-  priceText: {fileID: 1991128465}
+  priceText: {fileID: 1948230060}
 --- !u!1 &1924178769
 GameObject:
   m_ObjectHideFlags: 0
@@ -3672,7 +3672,7 @@ PrefabInstance:
       objectReference: {fileID: -470068766, guid: 839272344a9185b49a739c8e18c93c2f, type: 3}
     - target: {fileID: 9221721608384257966, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
       propertyPath: m_Name
-      value: Text
+      value: BrushText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3685,17 +3685,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2136372818}
   m_SourcePrefab: {fileID: 100100000, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
---- !u!114 &1991128465 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8915571792457564292, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
-  m_PrefabInstance: {fileID: 1991128464}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1991128466 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3814435045348238035, guid: 83e087b4b8bd08f45a6d3b8bfb926fe4, type: 3}
@@ -4140,7 +4129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolBuyButton
   toolName: Brush
-  priceText: {fileID: 1991128465}
+  priceText: {fileID: 1368297011}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
