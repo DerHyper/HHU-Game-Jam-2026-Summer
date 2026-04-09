@@ -36,10 +36,12 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
     public void TakeDamage(int damage)
     {
         if (damage <= 0) return;
-        Debug.Log($"Collectable {Name} took {damage} damage, current health: {CurrentHealth}/{MaxHealth}");
         AudioManager.Instance.PlayOnce(DamageSound);
         VFXManager.Instance.CreateBigExplosion(transform.position, DamageParticles);
         CurrentHealth = math.clamp(CurrentHealth - damage, 0, MaxHealth);
+        Debug.Log($"Collectable {Name} took {damage} damage, current health: {CurrentHealth}/{MaxHealth}");
+        UiManager.Instance.SetHealthText(GetHealthPercentage());
+        UiManager.Instance.SetValueText(GetCurrentValue());
         if (CurrentHealth <= 0)
         {
             DestroyGame();
