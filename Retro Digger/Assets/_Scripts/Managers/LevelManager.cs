@@ -6,6 +6,9 @@ using UnityEngine.Events;
 
 public sealed class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance;
+    private LevelManager() { }
+
     [Serializable]
     public class LevelData
     {
@@ -30,6 +33,14 @@ public sealed class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("LevelManager: Multiple instances detected. Destroying duplicate.");
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
         RebuildManagedObjectCache();
     }
 
