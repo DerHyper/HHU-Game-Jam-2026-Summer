@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red, 60 * 20);
         if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, rayDistance)
-            && (collider = hit.collider.GetComponentInParent<Collider>()) != null)
+            && (collider = hit.collider.GetComponent<Collider>()) != null)
         {
             collider.OnTriggerEnter(null);
             Debug.Log("Ray hit: " + hit.collider.name);
