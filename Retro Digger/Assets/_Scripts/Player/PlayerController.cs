@@ -36,9 +36,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
-
         space.action.started += _ => OnStartDigging();
         space.action.canceled += _ => OnStopDigging();
     }
