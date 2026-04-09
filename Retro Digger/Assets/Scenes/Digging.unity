@@ -242,18 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7859d4a45da46044fb7867932f7d51f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingManager
-  MaxDirtLevel: 3
   MaxDirtSpotsPerLevel: 3
-  CurrentTool:
-    Level: 1
-    DiggingDamager: 1
-  CollectedTools:
-  - Level: 1
-    DiggingDamager: 1
-  - Level: 2
-    DiggingDamager: 1
-  - Level: 3
-    DiggingDamager: 1
   CurrentDirtSpots: []
   DirtPrefabs:
   - Level: 1
@@ -409,6 +398,56 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &656557553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 656557554}
+  - component: {fileID: 656557555}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &656557554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656557553}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1562034317}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &656557555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656557553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44d7d7171ec08042965544a9e9ae7c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  _sfxParent: {fileID: 656557554}
+  musicPlayer: []
+  fadeAmount: 1
+  pitchIncrease: 0.1
+  randomPitchRange: 0.2
+  pitchResetTime: 1
 --- !u!1 &692312889
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb64df3a74a9b445866af462760abcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingDebugger
+  MaxDirtLevel: 1
+  LootLevel: 1
 --- !u!1 &1257785989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,8 +1076,64 @@ Transform:
   - {fileID: 1546383892}
   - {fileID: 1201574106}
   - {fileID: 728552970}
+  - {fileID: 1723487885}
+  - {fileID: 656557554}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1723487884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1723487885}
+  - component: {fileID: 1723487886}
+  m_Layer: 0
+  m_Name: InventoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1723487885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723487884}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1562034317}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1723487886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723487884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec3482d1de46bb4793d6bffa24dc578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
+  CurrentTool:
+    Level: 1
+    DiggingDamager: 1
+  CollectedTools:
+  - Level: 1
+    DiggingDamager: 1
+  - Level: 2
+    DiggingDamager: 1
+  - Level: 3
+    DiggingDamager: 1
 --- !u!1 &1809564030
 GameObject:
   m_ObjectHideFlags: 0

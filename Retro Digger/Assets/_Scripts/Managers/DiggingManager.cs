@@ -5,8 +5,6 @@ using UnityEngine;
 public class DiggingManager : MonoBehaviour {
     public static DiggingManager Instance { get; private set; }
     public int MaxDirtSpotsPerLevel = 3;
-    [SerializeField] public Tool CurrentTool = null;
-    [SerializeField] public List<Tool> CollectedTools = null;
     [SerializeField] public List<Dirt> CurrentDirtSpots = null;
     /// <summary>
     /// List of Dirt Prefab Lists, where each list corresponds to a dirt level. The first list is for level 1 dirt, the second for level 2, and so on.
@@ -43,24 +41,6 @@ public class DiggingManager : MonoBehaviour {
         {
             Instance = this;
         }
-    }
-
-    public int GetToolDamage()
-    {
-        if (CurrentTool == null)
-        {
-            return 0;
-        }
-        return CurrentTool.DiggingDamager;
-    }
-
-    public int GetToolLevel()
-    {
-        if (CurrentTool == null)
-        {
-            return 0;
-        }
-        return CurrentTool.Level;
     }
 
     public void RemoveDiggingLayer(Dirt layer)

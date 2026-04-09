@@ -51,7 +51,7 @@ public class DiggingLayer : MonoBehaviour, IPointerClickHandler
 
     private void CheckDamage()
     {
-        var toolLevel = DiggingManager.Instance.GetToolLevel();
+        var toolLevel = InventoryManager.Instance.GetToolLevel();
         if (toolLevel < ToolLevelRequired)
         {
             Debug.Log("Tool level too low to dig this layer!");
@@ -73,7 +73,7 @@ public class DiggingLayer : MonoBehaviour, IPointerClickHandler
 
     private void DoDamage()
     {
-        var damage = DiggingManager.Instance.GetToolDamage();
+        var damage = InventoryManager.Instance.GetToolDamage();
         CurrentHealth = math.clamp(CurrentHealth - damage, 0, CurrentMaxHealth);
         Debug.Log($"Dealt {damage} damage to the layer. Current health: {CurrentHealth}/{CurrentMaxHealth}");
     }

@@ -97,6 +97,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayOnce(AudioClip clip, float volume, float pitch)
     {
+        if (clip == null) return;
         GameObject sfx = new GameObject("SFX");
         sfx.transform.parent = _sfxParent;
         AudioSource source = sfx.AddComponent<AudioSource>();
