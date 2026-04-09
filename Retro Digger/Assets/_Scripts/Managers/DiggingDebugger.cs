@@ -9,5 +9,6 @@ public class DiggingDebugger : MonoBehaviour
     {
         CollectableManager.Instance.SpawnCollectable(LootLevel);
         DiggingManager.Instance.SpawnDirtSpots(MaxDirtLevel);
+        InventoryManager.Instance.UpdateInventoryUI();
     }
 }
