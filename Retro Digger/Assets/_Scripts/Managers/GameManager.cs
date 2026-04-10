@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
             DiggingManager.Instance.SpawnDirtSpots();
             InventoryManager.Instance.UpdateInventoryUI();
         });
+
+        WhenSceneLoads(GameScene.MapView, (scene) =>
+        {
+            LevelManager.Instance.LoadLevel(TimeManager.Instance.CurrentDay - 1);
+        });
     }
 
     public void GoToMainMenu()
@@ -57,8 +62,23 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Starting Game!");
+
         TimeManager.Instance.CurrentDay = 1;
         TimeManager.Instance.StartDay();
+        GoToMap();
+    }
+
+    public void NextDay()
+    {
+        if (TimeManager.Instance.IsLastDay())
+        {
+            GoToGameFinished();
+            return;
+        }
+
+        TimeManager.Instance.CurrentDay++;
+        TimeManager.Instance.StartDay();
+
         GoToMap();
     }
 
