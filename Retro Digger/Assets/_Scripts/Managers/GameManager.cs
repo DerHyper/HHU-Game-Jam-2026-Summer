@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     #region Singleton
     public static GameManager Instance { get; private set; }
     public int CurrentDay => TimeManager.Instance.CurrentDay;
+
+    public MusicTrack MainMenuMusic;
+    public MusicTrack MapDigMusic;
+    public MusicTrack ShopMusic;
+    public MusicTrack GameFinishedMusic;
     private void Awake()
     {
         if (Instance == null)
@@ -30,6 +35,10 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    private void Start() {
+        AudioManager.Instance.PlayMusic(MainMenuMusic);
+    }
+
     public void GoToMainMenu()
     {
         GameScene.MainMenu.LoadSingle();
@@ -43,7 +52,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Starting Game!");
         TimeManager.Instance.CurrentDay = 1;
         TimeManager.Instance.StartDay();
-        
         GoToMap();
     }
 
@@ -52,6 +60,7 @@ public class GameManager : MonoBehaviour
         if (!GameScene.DiggingView.IsLatestScene())
         {
             Debug.Log("Replacing with map view");
+            AudioManager.Instance.PlayMusic(MapDigMusic);
             GameScene.MapView.LoadSingle();
             LevelManager.Instance.NextLevel();
             return;
@@ -109,12 +118,14 @@ public class GameManager : MonoBehaviour
 
     public void GoToShop()
     {
+        AudioManager.Instance.PlayMusic(ShopMusic);
         Debug.Log("Going to shop!");
         GameScene.ToolsShop.LoadSingle();
     }
 
     internal void GoToGameFinished()
     {
+        AudioManager.Instance.PlayMusic(GameFinishedMusic);
         Debug.Log("Going to game finished!");
         GameScene.GameFinished.LoadSingle();
     }
