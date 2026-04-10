@@ -8,6 +8,10 @@ builder.Services.AddOpenApi();
 builder.Services.AddSingleton<ScoreStore>();
 
 var app = builder.Build();
+var isRunningInContainer = string.Equals(
+    Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER"),
+    "true",
+    StringComparison.OrdinalIgnoreCase);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -15,7 +19,10 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+if (!isRunningInContainer)
+{
+    app.UseHttpsRedirection();
+}
 
 var apiV1 = app.MapGroup("/api/v1");
 
@@ -72,7 +79,16 @@ public sealed class ScoreStore
 
     public ScoreStore(IHostEnvironment environment)
     {
-        _storePath = Path.Combine(environment.ContentRootPath, "scores.json");
+        var configuredPath = Environment.GetEnvironmentVariable("SCORES_PATH");
+        _storePath = string.IsNullOrWhiteSpace(configuredPath)
+            ? Path.Combine(environment.ContentRootPath, "scores.json")
+            : configuredPath;
+
+        var storeDirectory = Path.GetDirectoryName(_storePath);
+        if (!string.IsNullOrWhiteSpace(storeDirectory))
+        {
+            Directory.CreateDirectory(storeDirectory);
+        }
     }
 
     public async Task<IReadOnlyList<Score>> GetTopScoresAsync(int limit, CancellationToken cancellationToken)

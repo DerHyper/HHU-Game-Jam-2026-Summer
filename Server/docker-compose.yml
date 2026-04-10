@@ -1,0 +1,17 @@
+services:
+  retrodigger-api:
+    container_name: retrodigger-api
+    build:
+      context: .
+      dockerfile: Server.RetroDigger/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      SCORES_PATH: /data/scores.json
+    volumes:
+      - retrodigger-scores:/data
+    restart: unless-stopped
+
+volumes:
+  retrodigger-scores:
