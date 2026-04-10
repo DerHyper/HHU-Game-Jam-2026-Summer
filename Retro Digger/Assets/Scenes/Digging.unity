@@ -1073,7 +1073,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectableManager
   Collectables:
   - {fileID: 3494587270811218961, guid: 376853b1ee7a5744595d7712ad76bdff, type: 3}
+  - {fileID: 3494587270811218961, guid: 9c3737eeb42cd554b88e229200046569, type: 3}
+  - {fileID: 3494587270811218961, guid: 31762d1bb79109f4681a42f1d2517dd4, type: 3}
+  - {fileID: 3494587270811218961, guid: 862f9ad6da7cd6948ac9d00719265575, type: 3}
+  - {fileID: 3494587270811218961, guid: 7a66927c94411ea46907f74ae2a4137e, type: 3}
+  - {fileID: 3494587270811218961, guid: 77d1bb29d1f7fe14ea5b153fdb7feb50, type: 3}
   - {fileID: 3494587270811218961, guid: 20585521ffa7e254c988587d7d26e817, type: 3}
+  - {fileID: 3494587270811218961, guid: 16b495643c33e9f42b5a60841bc90147, type: 3}
+  - {fileID: 3494587270811218961, guid: 6c85857cd6521fa42bb55c26ac701e59, type: 3}
   CollectablePosition: {fileID: 2099971890}
   CurrentCollectable: {fileID: 0}
 --- !u!1 &821269860
@@ -1746,7 +1753,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 1.203125
+  orthographic size: 1.0546875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
