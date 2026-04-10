@@ -133,6 +133,10 @@ public class AudioPlayer
     [HideInInspector] public bool fadeIn = false;
     [HideInInspector] public bool fadeOut = false;
     private float fadeAmount = 1;
+    
+    // Speichert den nächsten Clip für den Übergang
+    private AudioClip nextClip = null;
+    private bool hasNextClip = false;
 
     public void Update() {
         if (fadeIn && musicPlayer.volume < currentMusicTargetVolume)
@@ -151,6 +155,16 @@ public class AudioPlayer
         else if (fadeOut)
         {
             fadeOut = false;
+            
+            // Wechsel den Clip erst wenn Fade-Out fertig ist
+            if (hasNextClip)
+            {
+                musicPlayer.clip = nextClip;
+                nextClip = null;
+                hasNextClip = false;
+                musicPlayer.Play();
+            }
+            
             fadeIn = true;
             currentMusicTargetVolume = nextMusicTargetVolume;
         }
@@ -170,8 +184,8 @@ public class AudioPlayer
         else
         {
             // Music is playing, fade out current and prepare next
-            musicPlayer.clip = musicTrack.clipLayers[index];
-            musicPlayer.volume = 0;
+            nextClip = musicTrack.clipLayers[index];
+            hasNextClip = true;
             nextMusicTargetVolume = isSilent ? 0 : musicTrack.volumes[index];
             fadeOut = true;
         }
