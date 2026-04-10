@@ -93,4 +93,13 @@ public class GameManager : MonoBehaviour
                 onUnload(unloadedScene);
         };
     }
+
+    public void WhenSceneLoads(GameScene scene, Action<Scene> onLoad)
+    {
+        SceneManager.sceneLoaded += (loadedScene, mode) =>
+        {
+            if (loadedScene.name == scene.SceneName)
+                onLoad(loadedScene);
+        };
+    }
 }
