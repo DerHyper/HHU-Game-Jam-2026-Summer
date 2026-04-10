@@ -5,10 +5,12 @@ public record GameScene
     public static readonly GameScene DiggingView = new("Scenes/Digging");
     public static readonly GameScene ToolsShop = new("Scenes/ToolsShopScene");
 
+    public readonly string ScenePath;
     public readonly string SceneName;
 
-    private GameScene(string sceneName)
+    private GameScene(string scenePath)
     {
-        SceneName = sceneName;
+        ScenePath = scenePath;
+        SceneName = scenePath.Split("/")[^1];
     }
 }

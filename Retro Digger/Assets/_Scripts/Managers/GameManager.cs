@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -30,21 +29,9 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene(GameScene.MainMenu.SceneName, LoadSceneMode.Single);
+        GameScene.MainMenu.LoadSingle();
     }
 
     /// <summary>
@@ -59,27 +46,38 @@ public class GameManager : MonoBehaviour
 
     public void GoToMap()
     {
-        if (SceneManager.GetActiveScene().name == GameScene.DiggingView.SceneName)
+        if (!GameScene.DiggingView.IsLatestScene())
         {
-            SceneManager.UnloadSceneAsync(GameScene.DiggingView.SceneName).completed += (op) =>
-            {
-                SceneManager.LoadScene(GameScene.MapView.SceneName, LoadSceneMode.Single);
-            };
+            Debug.Log("Replacing with map view");
+            GameScene.MapView.LoadSingle();
             return;
         }
 
-        SceneManager.LoadScene(GameScene.MapView.SceneName, LoadSceneMode.Single);
+        Debug.Log("Popping the digging view");
+        SceneManager.UnloadSceneAsync(GameScene.DiggingView.ScenePath).completed += (op) =>
+        {
+            if (GameScene.MapView.IsLatestScene())
+            {
+                Debug.Log("Map view already active, no need to load it again.");
+                return;
+            }
+
+            Debug.Log("Map view was not active even though we came from digging!");
+            GameScene.MapView.LoadAdditive();
+        };
     }
 
     public void GoToDiggingView()
     {
-        if (SceneManager.GetActiveScene().name == GameScene.MapView.SceneName)
+        if (GameScene.MapView.IsLatestScene())
         {
-            SceneManager.LoadScene(GameScene.DiggingView.SceneName, LoadSceneMode.Additive);
+            Debug.Log("Pushing the digging view");
+            GameScene.DiggingView.LoadAdditive();
             return;
         }
 
-        SceneManager.LoadScene(GameScene.DiggingView.SceneName, LoadSceneMode.Single);
+        Debug.Log("Replacing with digging view");
+        GameScene.DiggingView.LoadSingle();
     }
 
     public void EndGame()
