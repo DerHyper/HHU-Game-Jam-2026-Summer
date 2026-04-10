@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3856112570102476102}
   - component: {fileID: 7687463751770636643}
   m_Layer: 0
-  m_Name: Fifa23
+  m_Name: Tetris
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,12 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370119f8a58cad94d88575306266b21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Videogame
-  Name: Fifa 23
-  Sprite: {fileID: -842831248, guid: a3d80a3934523d947b38f5859f972bce, type: 3}
-  MaxValue: 5
-  Level: 1
-  MaxHealth: 20
-  CurrentHealth: 20
+  Name: Tetris
+  Sprite: {fileID: 919342569, guid: a3d80a3934523d947b38f5859f972bce, type: 3}
+  MaxValue: 75
+  Level: 3
+  MaxHealth: 10
+  CurrentHealth: 10
   CollectSound: {fileID: 8300000, guid: 4c50bc4b00221eb46a75b810864eacb2, type: 3}
   DamageSound: {fileID: 8300000, guid: 181fbdd5cc351ae44abe9252ae5a85c5, type: 3}
   DestroySound: {fileID: 8300000, guid: 803665f564ff8d942af6dda7449c2a97, type: 3}
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.25, y: 0.25}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -842831248, guid: a3d80a3934523d947b38f5859f972bce, type: 3}
+  m_Sprite: {fileID: 919342569, guid: a3d80a3934523d947b38f5859f972bce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
