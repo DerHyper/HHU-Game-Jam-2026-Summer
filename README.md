@@ -1,6 +1,8 @@
 # Retro Digger
 
-**Alle 2D-Grafiken, 3D-Modelle sowie die Schrift wurden von uns selbst erstellt.**
+**Alle 2D-Grafiken, 3D-Modelle sowie die Schrift wurden von uns selbst erstellt.**\
+\
+Hier Spielbar: https://hyperstudiosde.itch.io/retro-digger
 
 
 ## Kurzbeschreibung und Spielziel:
