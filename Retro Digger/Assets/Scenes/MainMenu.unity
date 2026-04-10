@@ -3808,7 +3808,7 @@ MonoBehaviour:
     clipLayers:
     - {fileID: 8300000, guid: 31e0eb4d15148b643917bbffd74e5547, type: 3}
     volumes:
-    - 0.5
+    - 0.3
   GameFinishedMusic:
     clipLayers:
     - {fileID: 8300000, guid: 694f60b67a50cec449c86eb913c57630, type: 3}

@@ -35,8 +35,15 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    private void Start() {
+    void Start()
+    {
         AudioManager.Instance.PlayMusic(MainMenuMusic);
+        WhenSceneLoads(GameScene.DiggingView, (scene) =>
+        {
+            CollectableManager.Instance.SpawnCollectable();
+            DiggingManager.Instance.SpawnDirtSpots();
+            InventoryManager.Instance.UpdateInventoryUI();
+        });
     }
 
     public void GoToMainMenu()
@@ -86,11 +93,12 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Pushing the digging view");
             GameScene.DiggingView.LoadAdditive();
-            return;
         }
-
-        Debug.Log("Replacing with digging view");
-        GameScene.DiggingView.LoadSingle();
+        else
+        {
+            Debug.Log("Replacing with digging view");
+            GameScene.DiggingView.LoadSingle();
+        }
     }
 
     public void EndGame()
