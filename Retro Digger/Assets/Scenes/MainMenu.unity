@@ -3201,6 +3201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1140489922}
+  - component: {fileID: 1140489923}
   m_Layer: 0
   m_Name: ScoreEntry
   m_TagString: Untagged
@@ -3229,6 +3230,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1140489923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140489921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
+  playerNameText: {fileID: 14824312}
+  pointsText: {fileID: 1581857708}
 --- !u!1 &1153564227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,6 +3467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1325610461}
+  - component: {fileID: 1325610462}
   m_Layer: 0
   m_Name: ScoreEntry (4)
   m_TagString: Untagged
@@ -3480,6 +3496,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1325610462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325610460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
+  playerNameText: {fileID: 1549064907}
+  pointsText: {fileID: 296364829}
 --- !u!1 &1426131643
 GameObject:
   m_ObjectHideFlags: 0
@@ -3608,6 +3638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1476121655}
+  - component: {fileID: 1476121656}
   m_Layer: 0
   m_Name: ScoreEntry (1)
   m_TagString: Untagged
@@ -3636,6 +3667,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1476121656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476121654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
+  playerNameText: {fileID: 746385257}
+  pointsText: {fileID: 1520970594}
 --- !u!1 &1514467423
 GameObject:
   m_ObjectHideFlags: 0
@@ -5328,6 +5373,12 @@ MonoBehaviour:
   MenusToHideOnLeave:
   - {fileID: 1579786643}
   - {fileID: 16756589}
+  ScoreEntryContainers:
+  - {fileID: 1140489921}
+  - {fileID: 1476121654}
+  - {fileID: 1976174472}
+  - {fileID: 1939149703}
+  - {fileID: 1325610460}
 --- !u!4 &1781960379
 Transform:
   m_ObjectHideFlags: 0
@@ -5521,6 +5572,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1939149704}
+  - component: {fileID: 1939149705}
   m_Layer: 0
   m_Name: ScoreEntry (3)
   m_TagString: Untagged
@@ -5549,6 +5601,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1939149705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939149703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
+  playerNameText: {fileID: 166527715}
+  pointsText: {fileID: 1239358004}
 --- !u!1 &1976174472
 GameObject:
   m_ObjectHideFlags: 0
@@ -5558,6 +5624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1976174473}
+  - component: {fileID: 1976174474}
   m_Layer: 0
   m_Name: ScoreEntry (2)
   m_TagString: Untagged
@@ -5586,6 +5653,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1976174474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976174472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
+  playerNameText: {fileID: 340911595}
+  pointsText: {fileID: 627996158}
 --- !u!1 &1999224811
 GameObject:
   m_ObjectHideFlags: 0
@@ -6047,7 +6128,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1472833950}
   m_HandleRect: {fileID: 1472833949}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
