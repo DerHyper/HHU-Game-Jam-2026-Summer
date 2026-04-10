@@ -33,7 +33,7 @@ public interface IMoneyManager
 
 public sealed partial class MoneyManager : IMoneyManager
 {
-    public int CurrentScore { get; private set; } = 0;
+    public int CurrentScore = 0;
 
     #region Money Management
     [SerializeField]
@@ -44,7 +44,14 @@ public sealed partial class MoneyManager : IMoneyManager
         private set
         {
             _currentMoney = value;
-            OnMoneyChanged?.Invoke(_currentMoney);
+            try
+            {
+                OnMoneyChanged?.Invoke(_currentMoney);
+            }
+            catch (System.Exception)
+            {
+                Debug.LogWarning(":(");
+            }
         }
     }
     public event Action<int> OnMoneyChanged;

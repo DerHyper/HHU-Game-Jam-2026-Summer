@@ -55,19 +55,19 @@ public class DiggingLayer : MonoBehaviour, IPointerClickHandler
         if (toolLevel < ToolLevelRequired)
         {
             Debug.Log("Tool level too low to dig this layer!");
-            VFXManager.Instance.CreateMicroExplosion(InputManager.Instance.GetMouseWorldPosition(), Particles);
+            VFXManager.Instance.CreateMicroExplosion(gameObject.transform.position, Particles);
             return;
         }
         else if (toolLevel > ToolLevelRequired)
         {
             Debug.Log("Tool level too high to dig this layer!");
-            VFXManager.Instance.CreateBigExplosion(InputManager.Instance.GetMouseWorldPosition(), Particles);
+            VFXManager.Instance.CreateBigExplosion(gameObject.transform.position, Particles);
             return;
         }
         else
         {
             DoDamage();
-            VFXManager.Instance.CreateSmallExplosion(InputManager.Instance.GetMouseWorldPosition(), Particles);
+            VFXManager.Instance.CreateSmallExplosion(gameObject.transform.position, Particles);
         }
     }
 

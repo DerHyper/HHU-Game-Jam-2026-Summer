@@ -16,6 +16,11 @@ public class MoneyCounter : MonoBehaviour
         UpdateMoneyText(MoneyManager.Instance.CurrentMoney);
     }
 
+    void OnDestroy()
+    {
+        MoneyManager.Instance.OnMoneyChanged -= UpdateMoneyText;
+    }
+
     // Update is called once per frame
     void Update()
     {

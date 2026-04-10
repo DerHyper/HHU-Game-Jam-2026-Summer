@@ -23,6 +23,11 @@ public class ToolBuyButton : MonoBehaviour
         UpdateButton();
     }
 
+    void OnDestroy()
+    {
+        MoneyManager.Instance.OnMoneyChanged -= (_) => UpdateButton();
+    }
+
     void UpdateButton()
     {
         var button = GetComponent<UnityEngine.UI.Button>();
