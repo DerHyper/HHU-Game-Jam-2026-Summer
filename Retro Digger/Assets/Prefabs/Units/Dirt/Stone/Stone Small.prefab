@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b407e18e70817e24487b074248a1e463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingLayer
-  HealthAverage: 10
-  HealthDeviation: 5
+  HealthAverage: 5
+  HealthDeviation: 2
   CurrentMaxHealth: 10
   CurrentHealth: 10
   ToolLevelRequired: 3

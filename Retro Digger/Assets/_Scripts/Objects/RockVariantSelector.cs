@@ -37,6 +37,18 @@ public class RockVariantSelector : MonoBehaviour
     private void OnValidate()
     {
         selectedIndex = Mathf.Max(0, selectedIndex);
+#if UNITY_EDITOR
+        if (!Application.isPlaying)
+        {
+            UnityEditor.EditorApplication.delayCall += () =>
+            {
+                if (this != null)
+                    ApplyVariant();
+            };
+            return;
+        }
+#endif
+
         ApplyVariant();
     }
 
