@@ -15,6 +15,7 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
     public AudioClip DamageSound;
     public AudioClip DestroySound;
     public Sprite[] DamageParticles;
+    public bool IsCollected = false;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
 
     public void TakeDamage(int damage)
     {
+        if (IsCollected) return;
         if (damage <= 0) return;
         AudioManager.Instance.PlayOnce(DamageSound);
         VFXManager.Instance.CreateBigExplosion(transform.position, DamageParticles);

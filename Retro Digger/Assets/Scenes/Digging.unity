@@ -1648,6 +1648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DiggingDebugger
   MaxDirtLevel: 3
   LootLevel: 3
+  DoDebug: 0
 --- !u!1 &1257785989
 GameObject:
   m_ObjectHideFlags: 0
