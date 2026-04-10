@@ -7,8 +7,9 @@ public class TimeManager : MonoBehaviour
     public static TimeManager Instance { get; private set; }
 
     public int dayLimit = 5;
-    public TimeSpan dayDuration = TimeSpan.FromSeconds(60f); // Duration of a day in seconds
-    public int CurrentDay { get; private set; } = 1;
+    public int DayLengthInSeconds = 60;
+    public TimeSpan dayDuration; // Duration of a day in seconds
+    public int CurrentDay = 1;
     private Stopwatch dayTimer = new Stopwatch();
 
     void Awake()
@@ -21,6 +22,11 @@ public class TimeManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    void Start()
+    {
+        dayDuration = TimeSpan.FromSeconds(DayLengthInSeconds);
     }
 
     public void Update()
@@ -43,11 +49,18 @@ public class TimeManager : MonoBehaviour
     {
         dayTimer.Stop();
         CurrentDay++;
+        if (CurrentDay > dayLimit)
+        {
+            GameManager.Instance.GoToGameFinished();
+        }
+        else
+        {
+            GameManager.Instance.GoToShop();
+        }
     }
 
     public void StartDay()
     {
-        dayTimer.Restart();
         dayTimer.Restart();
     }
 }
