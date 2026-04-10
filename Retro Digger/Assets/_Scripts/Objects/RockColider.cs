@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class Collider : MonoBehaviour
+public class RockCollider : MonoBehaviour
 {
-    public void OnTriggerEnter(Collider other)
+    public void HitByPlayer(PlayerController player)
     {
         Debug.Log("Player entered the collider.");
+        GameManager
+            .Instance
+            .GoToDiggingView();
     }
 }
