@@ -10,8 +10,5 @@ services:
       ASPNETCORE_ENVIRONMENT: Production
       SCORES_PATH: /data/scores.json
     volumes:
-      - retrodigger-scores:/data
+      - ./data:/data
     restart: unless-stopped
-
-volumes:
-  retrodigger-scores:
