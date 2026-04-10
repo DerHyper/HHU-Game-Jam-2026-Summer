@@ -16,8 +16,13 @@ public class DiggingManager : MonoBehaviour
     [SerializeField] public List<DirtLevel> DirtPrefabs;
     [SerializeField] public Transform DirtParent;
 
-    public void SpawnDirtSpots(int MaxDirtLevel = 1)
+    public void SpawnDirtSpots(int MaxDirtLevel = -1)
     {
+        if (MaxDirtLevel == -1)
+        {
+            MaxDirtLevel = ToolService.Instance.GetCurrentToolLevel();
+        }
+
         int spriteLayer = 1;
         for (int level = 0; level < MaxDirtLevel && level < DirtPrefabs.Count; level++)
         {

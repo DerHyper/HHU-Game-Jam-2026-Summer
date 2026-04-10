@@ -80,4 +80,6 @@ public class ToolService
 
     public bool HasToolWithName(string name) => _availableTools.Exists(t => t.Name == name);
     public ToolModels GetCurrentTool(string name) => _availableTools.FirstOrDefault(t => t.Name == name);
+
+    public int GetCurrentToolLevel() => _availableTools.Max(t => t.Level);
 }
