@@ -64,6 +64,20 @@ public class ToolService
         return true;
     }
 
+    public bool BuyFreeTool(string toolName)
+    {
+        var toolModel = GetToolModelToBuy(toolName);
+        if (toolModel == null)
+        {
+            return false;
+        }
+
+        _availableTools.RemoveAll(t => t.Name == toolName);
+        _availableTools.Add(toolModel);
+
+        return true;
+    }
+
     public bool HasToolWithName(string name) => _availableTools.Exists(t => t.Name == name);
     public ToolModels GetCurrentTool(string name) => _availableTools.FirstOrDefault(t => t.Name == name);
 }

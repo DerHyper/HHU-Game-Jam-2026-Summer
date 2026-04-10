@@ -52,9 +52,9 @@ MonoBehaviour:
   Level: 3
   MaxHealth: 10
   CurrentHealth: 10
-  CollectSound: {fileID: 0}
-  DamageSound: {fileID: 0}
-  DestroySound: {fileID: 0}
+  CollectSound: {fileID: 8300000, guid: 4c50bc4b00221eb46a75b810864eacb2, type: 3}
+  DamageSound: {fileID: 8300000, guid: 181fbdd5cc351ae44abe9252ae5a85c5, type: 3}
+  DestroySound: {fileID: 8300000, guid: 803665f564ff8d942af6dda7449c2a97, type: 3}
   DamageParticles:
   - {fileID: -1121669995, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}
   - {fileID: 663368515, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}

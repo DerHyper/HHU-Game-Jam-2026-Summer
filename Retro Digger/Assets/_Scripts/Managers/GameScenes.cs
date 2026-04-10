@@ -4,6 +4,7 @@ public record GameScene
     public static readonly GameScene MapView = new("Scenes/MapViewScene");
     public static readonly GameScene DiggingView = new("Scenes/Digging");
     public static readonly GameScene ToolsShop = new("Scenes/ToolsShopScene");
+    public static readonly GameScene GameFinished = new("Scenes/GameFinished");
 
     public readonly string ScenePath;
     public readonly string SceneName;

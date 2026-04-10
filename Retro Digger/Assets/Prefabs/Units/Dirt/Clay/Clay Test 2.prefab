@@ -115,6 +115,6 @@ MonoBehaviour:
   - {fileID: 509994049, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}
   - {fileID: 1967032964, guid: 5db43630b260d344aafa17d21071ce5d, type: 3}
   sprite: {fileID: 2113649548, guid: b456077697190e641a32a2b495b6daf5, type: 3}
-  sfxDig: {fileID: 0}
-  sfxHitTooLow: {fileID: 0}
-  sfxHitTooHigh: {fileID: 0}
+  sfxDig: {fileID: 8300000, guid: 068890207ae66354b80f617664299290, type: 3}
+  sfxHitTooLow: {fileID: 8300000, guid: ac653927e3b3bfe44827d4d55ff24dba, type: 3}
+  sfxHitTooHigh: {fileID: 8300000, guid: 3eb7546307dc05d48acbe23b82f5968c, type: 3}

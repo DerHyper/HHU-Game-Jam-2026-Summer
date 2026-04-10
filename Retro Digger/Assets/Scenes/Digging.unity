@@ -844,6 +844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 656557554}
   - component: {fileID: 656557555}
+  - component: {fileID: 656557556}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -884,6 +885,14 @@ MonoBehaviour:
   pitchIncrease: 0.1
   randomPitchRange: 0.2
   pitchResetTime: 1
+--- !u!81 &656557556
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656557553}
+  m_Enabled: 1
 --- !u!1 &673049026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,6 +1657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DiggingDebugger
   MaxDirtLevel: 3
   LootLevel: 3
+  DoDebug: 0
 --- !u!1 &1257785989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,7 +1700,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1272134945}
   - component: {fileID: 1272134944}
-  - component: {fileID: 1272134943}
   - component: {fileID: 1272134946}
   - component: {fileID: 1272134947}
   - component: {fileID: 1272134948}
@@ -1702,14 +1711,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1272134943
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272134942}
-  m_Enabled: 1
 --- !u!20 &1272134944
 Camera:
   m_ObjectHideFlags: 0
@@ -2374,7 +2375,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e97660ebb7e4e0409aa7563f52cef3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
-  dayLimit: 5
+  dayLimit: 4
+  DayLengthInSeconds: 60
+  CurrentDay: 1
 --- !u!1 &1836649496
 GameObject:
   m_ObjectHideFlags: 0

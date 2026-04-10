@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 {
     #region Singleton
     public static GameManager Instance { get; private set; }
+    public int CurrentDay => TimeManager.Instance.CurrentDay;
     private void Awake()
     {
         if (Instance == null)
@@ -40,7 +41,9 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Starting Game!");
-
+        TimeManager.Instance.CurrentDay = 1;
+        TimeManager.Instance.StartDay();
+        
         GoToMap();
     }
 
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Replacing with map view");
             GameScene.MapView.LoadSingle();
+            LevelManager.Instance.NextLevel();
             return;
         }
 
@@ -92,5 +96,26 @@ public class GameManager : MonoBehaviour
             if (unloadedScene.name == scene.SceneName)
                 onUnload(unloadedScene);
         };
+    }
+
+    public void WhenSceneLoads(GameScene scene, Action<Scene> onLoad)
+    {
+        SceneManager.sceneLoaded += (loadedScene, mode) =>
+        {
+            if (loadedScene.name == scene.SceneName)
+                onLoad(loadedScene);
+        };
+    }
+
+    public void GoToShop()
+    {
+        Debug.Log("Going to shop!");
+        GameScene.ToolsShop.LoadSingle();
+    }
+
+    internal void GoToGameFinished()
+    {
+        Debug.Log("Going to game finished!");
+        GameScene.GameFinished.LoadSingle();
     }
 }

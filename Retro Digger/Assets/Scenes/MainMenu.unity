@@ -446,6 +446,53 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &141792347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 141792348}
+  - component: {fileID: 141792349}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &141792348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141792347}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1806491921}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141792349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141792347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e97660ebb7e4e0409aa7563f52cef3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeManager
+  dayLimit: 4
+  DayLengthInSeconds: 60
+  CurrentDay: 1
 --- !u!1 &166527713
 GameObject:
   m_ObjectHideFlags: 0
@@ -3201,6 +3248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1140489922}
+  - component: {fileID: 1140489923}
   m_Layer: 0
   m_Name: ScoreEntry
   m_TagString: Untagged
@@ -3229,6 +3277,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1140489923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140489921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
+  playerNameText: {fileID: 0}
+  pointsText: {fileID: 0}
 --- !u!1 &1153564227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3304,6 +3366,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153564227}
   m_CullTransparentMesh: 1
+--- !u!1 &1231662744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231662745}
+  - component: {fileID: 1231662747}
+  - component: {fileID: 1231662746}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1231662745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231662744}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1615.7388, y: -872, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1776665449}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1231662746
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231662744}
+  m_Enabled: 1
+--- !u!114 &1231662747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231662744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44d7d7171ec08042965544a9e9ae7c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  _sfxParent: {fileID: 1231662745}
+  musicPlayer: []
+  fadeAmount: 1
+  pitchIncrease: 0.1
+  randomPitchRange: 0.2
+  pitchResetTime: 1
 --- !u!1 &1239358002
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,6 +3573,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1325610461}
+  - component: {fileID: 1325610462}
   m_Layer: 0
   m_Name: ScoreEntry (4)
   m_TagString: Untagged
@@ -3480,6 +3602,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1325610462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325610460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
+  playerNameText: {fileID: 0}
+  pointsText: {fileID: 0}
 --- !u!1 &1426131643
 GameObject:
   m_ObjectHideFlags: 0
@@ -3505,12 +3641,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426131643}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1776665449}
+  m_Father: {fileID: 1806491921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1426131645
 MonoBehaviour:
@@ -3608,6 +3744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1476121655}
+  - component: {fileID: 1476121656}
   m_Layer: 0
   m_Name: ScoreEntry (1)
   m_TagString: Untagged
@@ -3636,6 +3773,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1476121656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476121654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
+  playerNameText: {fileID: 0}
+  pointsText: {fileID: 0}
 --- !u!1 &1514467423
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,7 +5254,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1717940553}
   - component: {fileID: 1717940552}
-  - component: {fileID: 1717940551}
   - component: {fileID: 1717940554}
   m_Layer: 0
   m_Name: Main Camera
@@ -5112,14 +5262,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1717940551
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717940550}
-  m_Enabled: 1
 --- !u!20 &1717940552
 Camera:
   m_ObjectHideFlags: 0
@@ -5292,8 +5434,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1231662745}
   - {fileID: 1781960379}
-  - {fileID: 1426131644}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1781960377
@@ -5328,6 +5470,12 @@ MonoBehaviour:
   MenusToHideOnLeave:
   - {fileID: 1579786643}
   - {fileID: 16756589}
+  ScoreEntryContainers:
+  - {fileID: 1140489921}
+  - {fileID: 1476121654}
+  - {fileID: 1976174472}
+  - {fileID: 1939149703}
+  - {fileID: 1325610460}
 --- !u!4 &1781960379
 Transform:
   m_ObjectHideFlags: 0
@@ -5352,6 +5500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1806491921}
+  - component: {fileID: 1806491922}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -5372,9 +5521,23 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1426131644}
+  - {fileID: 141792348}
   - {fileID: 820078252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1806491922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806491920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d36caecf049fbf4f9e160b83f3f2c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DontDestroy
 --- !u!1 &1824249188
 GameObject:
   m_ObjectHideFlags: 0
@@ -5521,6 +5684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1939149704}
+  - component: {fileID: 1939149705}
   m_Layer: 0
   m_Name: ScoreEntry (3)
   m_TagString: Untagged
@@ -5549,6 +5713,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1939149705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939149703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
+  playerNameText: {fileID: 0}
+  pointsText: {fileID: 0}
 --- !u!1 &1976174472
 GameObject:
   m_ObjectHideFlags: 0
@@ -5558,6 +5736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1976174473}
+  - component: {fileID: 1976174474}
   m_Layer: 0
   m_Name: ScoreEntry (2)
   m_TagString: Untagged
@@ -5586,6 +5765,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1976174474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976174472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
+  playerNameText: {fileID: 0}
+  pointsText: {fileID: 0}
 --- !u!1 &1999224811
 GameObject:
   m_ObjectHideFlags: 0
