@@ -73,7 +73,7 @@ public class DiggingManager : MonoBehaviour
         InventoryManager.Instance.CollectCollectable(currentCollectable);
         MoneyManager.Instance.AddMoneyAndScore(currentCollectable.GetCurrentValue());
 
-        throw new System.NotImplementedException("TODO");
+        GameManager.Instance.GoToMap();
     }
 
     /// <summary>
@@ -81,6 +81,6 @@ public class DiggingManager : MonoBehaviour
     /// </summary>
     public void EndDiggingLost()
     {
-        throw new System.NotImplementedException("TODO");
+        GameManager.Instance.GoToMap();
     }
 }
