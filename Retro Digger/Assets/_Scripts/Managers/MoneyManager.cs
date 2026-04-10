@@ -69,7 +69,7 @@ public sealed partial class MoneyManager : IMoneyManager
 
     public Task FinishGameAsync(string playerName)
         => DataService.GlobalDataService.CreateAsync(
-            GUID.Generate().ToString(),
+            Guid.NewGuid().ToString(),
             new Score
             {
                 PlayerName = playerName,
