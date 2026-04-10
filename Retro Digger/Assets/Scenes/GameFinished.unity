@@ -160,7 +160,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 49677771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc943df17ea6fe4dabc5bfc8afea94d, type: 3}
+  m_Script: {fileID: 11500000, guid: e59a3ffba8400c54d96bda18375553b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreEntryManager
   NameInputField: {fileID: 642206213}
@@ -747,6 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a0f35c2860690458533ffe4554109f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyManager
+  _currentMoney: 0
 --- !u!1 &516264680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1549,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 49677773}
         m_TargetAssemblyTypeName: ScoreEntryManager, Assembly-CSharp
-        m_MethodName: Submit
+        m_MethodName: Skip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1836,6 +1837,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c84968ba6c94f4493bf73b2c88be2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  MainMenuMusic:
+    clipLayers: []
+    volumes: []
+  MapDigMusic:
+    clipLayers: []
+    volumes: []
+  ShopMusic:
+    clipLayers: []
+    volumes: []
+  GameFinishedMusic:
+    clipLayers: []
+    volumes: []
 --- !u!1 &1480596817
 GameObject:
   m_ObjectHideFlags: 0

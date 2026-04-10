@@ -1081,6 +1081,7 @@ MonoBehaviour:
   - {fileID: 3494587270811218961, guid: 20585521ffa7e254c988587d7d26e817, type: 3}
   - {fileID: 3494587270811218961, guid: 16b495643c33e9f42b5a60841bc90147, type: 3}
   - {fileID: 3494587270811218961, guid: 6c85857cd6521fa42bb55c26ac701e59, type: 3}
+  - {fileID: 3494587270811218961, guid: 030bac20861455546893ac4988b68fca, type: 3}
   CollectablePosition: {fileID: 2099971890}
   CurrentCollectable: {fileID: 0}
 --- !u!1 &821269860
@@ -2382,9 +2383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e97660ebb7e4e0409aa7563f52cef3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
-  dayLimit: 4
   DayLengthInSeconds: 60
-  CurrentDay: 1
 --- !u!1 &1836649496
 GameObject:
   m_ObjectHideFlags: 0
