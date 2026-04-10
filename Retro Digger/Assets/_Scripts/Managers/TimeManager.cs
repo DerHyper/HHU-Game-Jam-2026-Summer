@@ -46,7 +46,7 @@ public class TimeManager : MonoBehaviour
 
     public static class Instance
     {
-        public static int dayLimit = 5;
+        public static int dayLimit = 4;
         public static int CurrentDay = 1;
 
         public static event Action<string> TimeChanged;
