@@ -3,36 +3,39 @@ using UnityEngine;
 
 public class UiManager : MonoBehaviour
 {
-    public static UiManager Instance { get; private set; }
     public TMP_Text timerText;
     public TMP_Text valueText;
     public TMP_Text healthPercentText;
 
-    private void Awake()
+    void Start()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
+        TimeManager.Instance.TimeChanged += SetTimerText;
+        UiInformer.OnValueChanged += SetValueText;
+        UiInformer.OnHealthChanged += SetHealthText;
     }
 
-    public void SetTimerText(string text)
+    void SetTimerText(string text)
     {
         timerText.text = text;
     }
-    
-    public void SetValueText(int value)
+
+    void SetValueText(int value)
     {
         valueText.text = value.ToString() + "p";
     }
 
-    public void SetHealthText(int value)
+    void SetHealthText(int value)
     {
         healthPercentText.text = value.ToString() + "%";
     }
 
+
+    public static class UiInformer
+    {
+        public static event System.Action<int> OnValueChanged;
+        public static event System.Action<int> OnHealthChanged;
+
+        public static void SetValueText(int value) => OnValueChanged?.Invoke(value);
+        public static void SetHealthText(int value) => OnHealthChanged?.Invoke(value);
+    }
 }

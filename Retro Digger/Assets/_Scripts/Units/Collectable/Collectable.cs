@@ -52,8 +52,8 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
 
     private void UpdateUi()
     {
-        UiManager.Instance.SetHealthText(GetHealthPercentage());
-        UiManager.Instance.SetValueText(GetCurrentValue());
+        UiManager.UiInformer.SetHealthText(GetHealthPercentage());
+        UiManager.UiInformer.SetValueText(GetCurrentValue());
     }
 
     public int GetHealthPercentage()

@@ -10,7 +10,9 @@ public class TimeManager : MonoBehaviour
     public int DayLengthInSeconds = 60;
     public TimeSpan dayDuration; // Duration of a day in seconds
     public int CurrentDay = 1;
-    private Stopwatch dayTimer = new Stopwatch();
+
+    public event Action<string> TimeChanged;
+
 
     void Awake()
     {
@@ -31,15 +33,15 @@ public class TimeManager : MonoBehaviour
 
     public void Update()
     {
-        if (!dayTimer.IsRunning)
+        if (!GlobalTimer.dayTimer.IsRunning)
         {
             return;
         }
 
-        TimeSpan remainingTime = dayDuration - dayTimer.Elapsed;
-        UiManager.Instance.SetTimerText(remainingTime.ToString(@"mm\:ss"));
+        TimeSpan remainingTime = dayDuration - GlobalTimer.dayTimer.Elapsed;
+        TimeChanged?.Invoke(remainingTime.ToString(@"mm\:ss"));
 
-        if (dayTimer.Elapsed >= dayDuration)
+        if (GlobalTimer.dayTimer.Elapsed >= dayDuration)
         {
             EndDay();
         }
@@ -47,7 +49,7 @@ public class TimeManager : MonoBehaviour
 
     private void EndDay()
     {
-        dayTimer.Stop();
+        GlobalTimer.dayTimer.Stop();
         CurrentDay++;
         if (CurrentDay > dayLimit)
         {
@@ -61,6 +63,11 @@ public class TimeManager : MonoBehaviour
 
     public void StartDay()
     {
-        dayTimer.Restart();
+        GlobalTimer.dayTimer.Restart();
     }
+}
+
+public static class GlobalTimer
+{
+    public static readonly Stopwatch dayTimer = new();
 }
