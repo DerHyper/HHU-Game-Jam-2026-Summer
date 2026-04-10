@@ -11,7 +11,7 @@ public sealed record ToolModels
     public int DiggingDamage { get; private set; }
     public int PointPrice { get; private set; }
 
-    private ToolModels(string name, int level, int diggingDamage, int pointPrice = 25)
+    private ToolModels(string name, int level, int diggingDamage, int pointPrice = 1)
     {
         Name = name;
         Level = level;

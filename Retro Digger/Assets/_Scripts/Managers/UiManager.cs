@@ -14,18 +14,29 @@ public class UiManager : MonoBehaviour
         UiInformer.OnHealthChanged += SetHealthText;
     }
 
+    void OnDestroy()
+    {
+        TimeManager.Instance.TimeChanged -= SetTimerText;
+
+        UiInformer.OnValueChanged -= SetValueText;
+        UiInformer.OnHealthChanged -= SetHealthText;
+    }
+
     void SetTimerText(string text)
     {
+        if (timerText == null) return;
         timerText.text = text;
     }
 
     void SetValueText(int value)
     {
+        if (valueText == null) return;
         valueText.text = value.ToString() + "p";
     }
 
     void SetHealthText(int value)
     {
+        if (healthPercentText == null) return;
         healthPercentText.text = value.ToString() + "%";
     }
 

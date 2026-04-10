@@ -36,6 +36,7 @@ public sealed partial class MoneyManager : IMoneyManager
     public int CurrentScore { get; private set; } = 0;
 
     #region Money Management
+    [SerializeField]
     private int _currentMoney = 0;
     public int CurrentMoney
     {

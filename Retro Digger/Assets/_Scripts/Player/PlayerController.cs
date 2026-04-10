@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsRunning", input is not { x: 0, z: 0 });
 
         var moveDir = Vector3.ClampMagnitude(new Vector3(input.x, 0, input.z), 1f);
-        rb.linearVelocity = speed * Time.deltaTime * moveDir;
+        gameObject.transform.position += speed * Time.deltaTime * moveDir;
 
         if (playerBody != null && moveDir != Vector3.zero)
         {

@@ -32,7 +32,6 @@ public class TimeManager : MonoBehaviour
     private void EndDay()
     {
         GlobalTimer.dayTimer.Stop();
-        Instance.CurrentDay++;
         if (Instance.CurrentDay > Instance.dayLimit)
         {
             GameManager.Instance.GoToGameFinished();

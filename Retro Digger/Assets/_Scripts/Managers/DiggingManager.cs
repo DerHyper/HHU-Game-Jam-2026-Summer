@@ -61,7 +61,7 @@ public class DiggingManager : MonoBehaviour
     {
         CurrentDirtSpots.Remove(layer);
         Destroy(layer.gameObject);
-        if (CurrentDirtSpots.Count == 0)
+        if (CurrentDirtSpots.Count <= 0)
         {
             Debug.Log("All digging layers removed!");
             EndDiggingWon();
@@ -78,7 +78,7 @@ public class DiggingManager : MonoBehaviour
         InventoryManager.Instance.CollectCollectable(currentCollectable);
         MoneyManager.Instance.AddMoneyAndScore(currentCollectable.GetCurrentValue());
 
-        GameManager.Instance.GoToMap();
+        Invoke(nameof(EndDiggingLost), 2f);
     }
 
     /// <summary>

@@ -89,7 +89,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("Replacing with map view");
             AudioManager.Instance.PlayMusic(MapDigMusic);
             GameScene.MapView.LoadSingle();
-            LevelManager.Instance.NextLevel();
             return;
         }
 
