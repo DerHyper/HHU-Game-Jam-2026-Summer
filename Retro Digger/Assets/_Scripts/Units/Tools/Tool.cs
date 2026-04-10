@@ -16,4 +16,14 @@ public class Tool
         Level = level;
         DiggingDamager = diggingDamager;
     }
+
+    public Tool WithValuesFrom(ToolModels toolModel) 
+        => new(Level, toolModel.DiggingDamage)
+        {
+            Name = Name,
+            Description = Description,
+            UiIcon = UiIcon,
+            UiColor = UiColor,
+            UiOrder = UiOrder
+        };
 }
