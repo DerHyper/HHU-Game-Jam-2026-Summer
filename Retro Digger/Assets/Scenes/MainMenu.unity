@@ -3289,8 +3289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
-  playerNameText: {fileID: 0}
-  pointsText: {fileID: 0}
+  playerNameText: {fileID: 14824312}
+  pointsText: {fileID: 1581857708}
 --- !u!1 &1153564227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3614,8 +3614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
-  playerNameText: {fileID: 0}
-  pointsText: {fileID: 0}
+  playerNameText: {fileID: 1549064907}
+  pointsText: {fileID: 296364829}
 --- !u!1 &1426131643
 GameObject:
   m_ObjectHideFlags: 0
@@ -3785,8 +3785,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
-  playerNameText: {fileID: 0}
-  pointsText: {fileID: 0}
+  playerNameText: {fileID: 746385257}
+  pointsText: {fileID: 1520970594}
 --- !u!1 &1514467423
 GameObject:
   m_ObjectHideFlags: 0
@@ -5725,8 +5725,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
-  playerNameText: {fileID: 0}
-  pointsText: {fileID: 0}
+  playerNameText: {fileID: 166527715}
+  pointsText: {fileID: 1239358004}
 --- !u!1 &1976174472
 GameObject:
   m_ObjectHideFlags: 0
@@ -5777,8 +5777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb47f8e2fbd3f848b42a515a5daec59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreEntrySetter
-  playerNameText: {fileID: 0}
-  pointsText: {fileID: 0}
+  playerNameText: {fileID: 340911595}
+  pointsText: {fileID: 627996158}
 --- !u!1 &1999224811
 GameObject:
   m_ObjectHideFlags: 0
@@ -6240,7 +6240,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1472833950}
   m_HandleRect: {fileID: 1472833949}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
