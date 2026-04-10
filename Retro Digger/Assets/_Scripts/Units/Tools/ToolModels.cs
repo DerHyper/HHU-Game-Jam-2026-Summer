@@ -2,8 +2,8 @@ using UnityEngine;
 
 public sealed record ToolModels
 {
-    public static readonly ToolModels Hammer = new("Hammer", 1, 1);
-    public static readonly ToolModels Chisel = new("Chisel", 1, 1);
+    public static readonly ToolModels Hammer = new("Hammer", 3, 1);
+    public static readonly ToolModels Chisel = new("Chisel", 2, 1);
     public static readonly ToolModels Brush = new("Brush", 1, 1);
 
     public string Name { get; private set; }

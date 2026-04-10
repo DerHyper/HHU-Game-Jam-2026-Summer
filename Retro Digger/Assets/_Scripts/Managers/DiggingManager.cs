@@ -76,7 +76,15 @@ public class DiggingManager : MonoBehaviour
         Collectable currentCollectable = CollectableManager.Instance.CurrentCollectable;
 
         InventoryManager.Instance.CollectCollectable(currentCollectable);
-        MoneyManager.Instance.AddMoneyAndScore(currentCollectable.GetCurrentValue());
+        try
+        {
+            MoneyManager.Instance.AddMoneyAndScore(currentCollectable.GetCurrentValue());
+        }
+        catch (System.Exception)
+        {
+            Debug.LogWarning("MoneyManager not found, skipping money reward.");
+        }
+        
 
         Invoke(nameof(EndDiggingLost), 2f);
     }

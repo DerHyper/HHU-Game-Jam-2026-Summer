@@ -68,14 +68,8 @@ public sealed partial class MoneyManager : IMoneyManager
         CurrentScore = 0;
     }
 
-    public Task FinishGameAsync(string playerName)
-        => DataService.GlobalDataService.CreateAsync(
-            Guid.NewGuid().ToString(),
-            new Score
-            {
-                PlayerName = playerName,
-                ScoreValue = CurrentScore
-            });
+    public async Task FinishGameAsync(string playerName)
+    {}
 
     [Serializable]
     private class Score
