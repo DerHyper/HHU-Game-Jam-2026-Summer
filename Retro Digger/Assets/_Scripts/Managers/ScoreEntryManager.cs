@@ -14,9 +14,20 @@ public class ScoreEntryManager : MonoBehaviour
 
     public void Submit()
     {
-        string playerName = NameInputField.text;
-        int score = MoneyManager.Instance.CurrentScore;
+        LeaveScreen(
+            string.IsNullOrWhiteSpace(NameInputField.text)
+                ? "Anonymous"
+                : NameInputField.text, 
+            MoneyManager.Instance.CurrentScore);
+    }
 
+    public void Skip()
+    {
+        LeaveScreen("Anonymous", MoneyManager.Instance.CurrentScore);
+    }
+
+    private void LeaveScreen(string playerName, int score)
+    {
         // Here you would typically save the score to a leaderboard or database
         Debug.Log($"Player Name: {playerName}, Score: {score}");
 
@@ -24,9 +35,12 @@ public class ScoreEntryManager : MonoBehaviour
         NameInputField.text = "";
 
         SendScore(playerName, score);
+
+        GameManager.Instance.GoToMainMenu();
     }
 
-    public async void SendScore(string playerName, int score)
+
+    private async void SendScore(string playerName, int score)
     {
         try
         {
