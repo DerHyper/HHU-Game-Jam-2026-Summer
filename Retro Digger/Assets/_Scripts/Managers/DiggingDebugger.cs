@@ -14,6 +14,7 @@ public class DiggingDebugger : MonoBehaviour
         }
         ToolService.Instance.BuyFreeTool("Chisel");
         ToolService.Instance.BuyFreeTool("Hammer");
+
         CollectableManager.Instance.SpawnCollectable(LootLevel);
         DiggingManager.Instance.SpawnDirtSpots(MaxDirtLevel);
         InventoryManager.Instance.UpdateInventoryUI();

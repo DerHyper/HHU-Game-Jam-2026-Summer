@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CollectableManager : MonoBehaviour {
+public class CollectableManager : MonoBehaviour
+{
     public static CollectableManager Instance { get; private set; }
     public List<Collectable> Collectables;
     public Transform CollectablePosition;
@@ -20,8 +21,13 @@ public class CollectableManager : MonoBehaviour {
         }
     }
 
-    public void SpawnCollectable(int level)
+    public void SpawnCollectable(int level = -1)
     {
+        if (level == -1)
+        {
+            level = ToolService.Instance.GetCurrentToolLevel();
+        }
+
         CurrentCollectable = Instantiate(GetRandomLevelCollectable(level), CollectablePosition);
         CurrentCollectable.transform.parent = CollectablePosition;
         CurrentCollectable.transform.position = CollectablePosition.position;
@@ -48,7 +54,7 @@ public class CollectableManager : MonoBehaviour {
 
         return levelCollectables[Random.Range(0, levelCollectables.Count)];
     }
-    
+
     public List<Collectable> GetCollectables()
     {
         if (Collectables.Count == 0) return null;

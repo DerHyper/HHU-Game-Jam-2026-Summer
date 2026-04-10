@@ -30,6 +30,16 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    void Start()
+    {
+        WhenSceneLoads(GameScene.DiggingView, (scene) =>
+        {
+            CollectableManager.Instance.SpawnCollectable();
+            DiggingManager.Instance.SpawnDirtSpots();
+            InventoryManager.Instance.UpdateInventoryUI();
+        });
+    }
+
     public void GoToMainMenu()
     {
         GameScene.MainMenu.LoadSingle();
@@ -43,7 +53,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Starting Game!");
         TimeManager.Instance.CurrentDay = 1;
         TimeManager.Instance.StartDay();
-        
+
         GoToMap();
     }
 
@@ -77,11 +87,12 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Pushing the digging view");
             GameScene.DiggingView.LoadAdditive();
-            return;
         }
-
-        Debug.Log("Replacing with digging view");
-        GameScene.DiggingView.LoadSingle();
+        else
+        {
+            Debug.Log("Replacing with digging view");
+            GameScene.DiggingView.LoadSingle();
+        }
     }
 
     public void EndGame()
