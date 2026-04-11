@@ -22,6 +22,15 @@ var isRunningInContainer = string.Equals(
     "true",
     StringComparison.OrdinalIgnoreCase);
 
+if (allowedOrigins.Length == 0)
+{
+    app.Logger.LogWarning("No CORS allowed origins were configured.");
+}
+else
+{
+    app.Logger.LogInformation("Configured CORS allowed origins: {AllowedOrigins}", allowedOrigins);
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
