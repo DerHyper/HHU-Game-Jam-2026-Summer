@@ -4,16 +4,28 @@ var builder = WebApplication.CreateBuilder(args);
 string[] allowedOrigins = builder
     .Configuration
     .GetSection("Cors:AllowedOrigins")
-    .Get<string[]>() ?? [];
+    .GetChildren()
+    .Select(section => section.Value?.Trim())
+    .Where(origin => !string.IsNullOrWhiteSpace(origin))
+    .Distinct(StringComparer.OrdinalIgnoreCase)
+    .ToArray()!;
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
+    {
+        if (allowedOrigins.Length == 0)
+        {
+            return;
+        }
+
         policy.WithOrigins(allowedOrigins)
+            .SetIsOriginAllowedToAllowWildcardSubdomains()
             .AllowAnyHeader()
-            .AllowAnyMethod()));
+            .AllowAnyMethod();
+    }));
 builder.Services.AddSingleton<ScoreStore>();
 
 var app = builder.Build();
@@ -28,7 +40,7 @@ if (allowedOrigins.Length == 0)
 }
 else
 {
-    app.Logger.LogInformation("Configured CORS allowed origins: {AllowedOrigins}", allowedOrigins);
+    app.Logger.LogInformation("Configured CORS allowed origins: {AllowedOrigins}", string.Join(", ", allowedOrigins));
 }
 
 // Configure the HTTP request pipeline.
