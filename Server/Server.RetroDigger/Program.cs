@@ -1,10 +1,19 @@
 using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
+string[] allowedOrigins = builder
+    .Configuration
+    .GetSection("Cors:AllowedOrigins")
+    .Get<string[]>() ?? [];
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(policy =>
+        policy.WithOrigins(allowedOrigins)
+            .AllowAnyHeader()
+            .AllowAnyMethod()));
 builder.Services.AddSingleton<ScoreStore>();
 
 var app = builder.Build();
@@ -23,6 +32,8 @@ if (!isRunningInContainer)
 {
     app.UseHttpsRedirection();
 }
+
+app.UseCors();
 
 var apiV1 = app.MapGroup("/api/v1");
 
