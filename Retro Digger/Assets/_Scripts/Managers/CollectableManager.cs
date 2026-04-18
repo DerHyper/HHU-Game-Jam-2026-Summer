@@ -50,7 +50,7 @@ public class CollectableManager : MonoBehaviour
     public Collectable GetRandomLevelCollectable(int level)
     {
         if (Collectables.Count == 0) return null;
-        List<Collectable> levelCollectables = Collectables.FindAll(c => c.Level <= level);
+        List<Collectable> levelCollectables = Collectables.FindAll(c => c.Level == level);
 
         return levelCollectables[Random.Range(0, levelCollectables.Count)];
     }

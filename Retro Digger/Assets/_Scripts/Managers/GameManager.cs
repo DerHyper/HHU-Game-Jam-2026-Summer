@@ -40,8 +40,9 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlayMusic(MainMenuMusic);
         WhenSceneLoads(GameScene.DiggingView, (scene) =>
         {
-            CollectableManager.Instance.SpawnCollectable();
-            DiggingManager.Instance.SpawnDirtSpots();
+            int level = GetLevelForDigging();
+            CollectableManager.Instance.SpawnCollectable(level);
+            DiggingManager.Instance.SpawnDirtSpots(level);
             InventoryManager.Instance.UpdateInventoryUI();
         });
 
@@ -49,6 +50,13 @@ public class GameManager : MonoBehaviour
         {
             LevelManager.Instance.LoadLevel(TimeManager.Instance.CurrentDay - 1);
         });
+    }
+
+    private int GetLevelForDigging()
+    {
+        int maxLevel = ToolService.Instance.GetCurrentToolLevel();
+        int level = UnityEngine.Random.Range(1, maxLevel+1);
+        return level;
     }
 
     public void GoToMainMenu()
