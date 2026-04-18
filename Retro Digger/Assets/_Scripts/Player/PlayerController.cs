@@ -37,9 +37,17 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+    }
 
+    private void Awake()
+    {
         space.action.started += _ => OnStartDigging();
         space.action.canceled += _ => OnStopDigging();
+    }
+    
+    private void OnDestroy() {
+        space.action.started -= _ => OnStartDigging();
+        space.action.canceled -= _ => OnStopDigging();
     }
 
     // Update is called once per frame

@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -18,15 +19,17 @@ public class ToolBuyButton : MonoBehaviour
             _toolService.BuyTool(toolName);
         });
 
-        MoneyManager.Instance.OnMoneyChanged += (_) => UpdateButton();
+        MoneyManager.Instance.OnMoneyChanged += OnMoneyChange;
 
         UpdateButton();
     }
 
     void OnDestroy()
     {
-        MoneyManager.Instance.OnMoneyChanged -= (_) => UpdateButton();
+        MoneyManager.Instance.OnMoneyChanged -= OnMoneyChange;
     }
+
+    private void OnMoneyChange(int amount) => UpdateButton();
 
     void UpdateButton()
     {
