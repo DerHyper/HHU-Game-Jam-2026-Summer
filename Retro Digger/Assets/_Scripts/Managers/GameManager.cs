@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour
     public MusicTrack MapDigMusic;
     public MusicTrack ShopMusic;
     public MusicTrack GameFinishedMusic;
+    private RockCollider _currentRock = null;
+    public RockCollider CurrentRock
+    {
+        get => _currentRock;
+        set => _currentRock = value;
+    }
     private void Awake()
     {
         if (Instance == null)
@@ -128,9 +134,48 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    public void EndDiggingWon()
+    {
+        Collectable currentCollectable = CollectableManager.Instance?.CurrentCollectable;
+        try
+        {
+            MoneyManager.Instance.AddMoneyAndScore(currentCollectable.GetCurrentValue());
+        }
+        catch (System.Exception)
+        {
+            Debug.LogWarning("MoneyManager not found, skipping money reward.");
+        }
+        GoToMap();
+        DestroyCurrentRock();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void EndDiggingLost()
+    {
+        Invoke(nameof(GoToMap), 2f);
+        DestroyCurrentRock();
+    }
+
+    internal void EndDiggingAborted()
+    {
+        EndDiggingLost();
+    }
+
     public void EndGame()
     {
         Debug.Log("Game Ended!");
+    }
+
+    public void DestroyCurrentRock()
+    {
+        if (CurrentRock == null) return;
+        CurrentRock.DestroyRock();
+        CurrentRock = null;
     }
 
     public void WhenSceneUnloads(GameScene scene, Action<Scene> onUnload)

@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, rayDistance)
             && (collider = hit.collider.GetComponent<RockCollider>()) != null)
         {
+            GameManager.Instance.CurrentRock = collider;
             collider.HitByPlayer(this);
             Debug.Log("Ray hit: " + hit.collider.name);
         }

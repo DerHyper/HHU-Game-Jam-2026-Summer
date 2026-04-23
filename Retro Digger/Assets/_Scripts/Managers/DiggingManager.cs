@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -64,36 +65,30 @@ public class DiggingManager : MonoBehaviour
         if (CurrentDirtSpots.Count <= 0)
         {
             Debug.Log("All digging layers removed!");
-            EndDiggingWon();
+            _ = EndDiggingWon();
         }
     }
 
     /// <summary>
     /// 
     /// </summary>
-    public void EndDiggingWon()
+    public async Task EndDiggingWon()
     {
         Collectable currentCollectable = CollectableManager.Instance.CurrentCollectable;
-
-        InventoryManager.Instance.CollectCollectable(currentCollectable);
-        try
-        {
-            MoneyManager.Instance.AddMoneyAndScore(currentCollectable.GetCurrentValue());
-        }
-        catch (System.Exception)
-        {
-            Debug.LogWarning("MoneyManager not found, skipping money reward.");
-        }
-        
-
-        Invoke(nameof(EndDiggingLost), 2f);
+        await InventoryManager.Instance.CollectCollectable(currentCollectable);
+        GameManager.Instance.EndDiggingWon();
     }
 
     /// <summary>
     /// 
     /// </summary>
-    public void EndDiggingLost()
+    public async Task EndDiggingLost()
     {
-        GameManager.Instance.GoToMap();
+        GameManager.Instance.EndDiggingLost();
+    }
+
+    public async Task EndDiggingAborted()
+    {
+        GameManager.Instance.EndDiggingAborted();
     }
 }

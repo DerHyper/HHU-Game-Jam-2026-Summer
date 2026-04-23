@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -60,10 +62,10 @@ public class InventoryManager : MonoBehaviour
         return CurrentTool.Level;
     }
 
-    public void CollectCollectable(Collectable collectable)
+    public async Task CollectCollectable(Collectable collectable)
     {
         colletedCollectables.Add(collectable);
-        collectable.Collect();
+        await collectable.Collect();
     }
 
     public void CollectTool(Tool tool)

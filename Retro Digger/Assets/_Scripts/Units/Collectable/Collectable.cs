@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -24,7 +25,7 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
         UpdateUi();
     }
 
-    public abstract void Collect();
+    public abstract Task Collect();
     public void DestroyGame()
     {
         AudioManager.Instance.PlayOnce(DestroySound);
