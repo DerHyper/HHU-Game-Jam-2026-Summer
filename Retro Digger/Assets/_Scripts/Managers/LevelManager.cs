@@ -30,6 +30,7 @@ public sealed class LevelManager : MonoBehaviour
     public int LevelCount => levels.Count;
 
     private readonly HashSet<GameObject> _allManagedObjects = new();
+    [SerializeField] private int _currentStones = 0;
 
     private void Awake()
     {
@@ -69,8 +70,18 @@ public sealed class LevelManager : MonoBehaviour
         foreach (var obj in _allManagedObjects.NotNull())
             obj.SetActive(false);
 
+        int stonesInLevel = 0;
         foreach (var obj in target.objectsToActivate.NotNull())
+        {
             obj.SetActive(true);
+            if (obj.GetComponent<RockCollider>() != null) stonesInLevel++;
+
+            foreach (var levelItem in obj.transform.GetComponentsInChildren<RockCollider>())
+            {
+                stonesInLevel++;
+            }
+        }
+        SetCurrentStones(stonesInLevel);
 
         CurrentLevelIndex = index;
         onLevelLoaded?.Invoke(CurrentLevelIndex);
@@ -135,6 +146,16 @@ public sealed class LevelManager : MonoBehaviour
             CurrentLevelIndex = levels.Count - 1;
     }
 
+    public void StoneCollected()
+    {
+        if (_currentStones > 0)
+        {
+            _currentStones--;
+        }
+    }
+
+    public int GetRemainingStones() => _currentStones;
+
     private void RebuildManagedObjectCache()
     {
         _allManagedObjects.Clear();
@@ -144,5 +165,10 @@ public sealed class LevelManager : MonoBehaviour
             _allManagedObjects.AddRange(
                 level.objectsToActivate.NotNull());
         }
+    }
+
+    private void SetCurrentStones(int count)
+    {
+        _currentStones = count;
     }
 }

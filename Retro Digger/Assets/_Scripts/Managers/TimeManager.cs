@@ -29,7 +29,7 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    private void EndDay()
+    public static void EndDay()
     {
         GlobalTimer.dayTimer.Stop();
         if (Instance.CurrentDay > Instance.dayLimit)
@@ -59,6 +59,11 @@ public class TimeManager : MonoBehaviour
         public static void StartDay()
         {
             GlobalTimer.dayTimer.Restart();
+        }
+
+        public static void EndDay()
+        {
+            TimeManager.EndDay();
         }
 
         public static bool IsLastDay() => Instance.CurrentDay >= Instance.dayLimit;

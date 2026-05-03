@@ -13,6 +13,7 @@ public class RockCollider : MonoBehaviour
 
     public void DestroyRock()
     {
+        gameObject.GetComponent<Collider>().enabled = false;
         float destroyDuration = 0.5f;
         transform
         .DOScale(0, destroyDuration)

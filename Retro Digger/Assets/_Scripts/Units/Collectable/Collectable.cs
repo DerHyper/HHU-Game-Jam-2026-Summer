@@ -47,6 +47,7 @@ public abstract class Collectable : MonoBehaviour, IPointerClickHandler
         UpdateUi();
         if (CurrentHealth <= 0)
         {
+            IsCollected = true;
             DestroyGame();
         }
     }

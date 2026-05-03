@@ -148,22 +148,34 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("MoneyManager not found, skipping money reward.");
         }
-        GoToMap();
-        DestroyCurrentRock();
+        ProcessDiggingEnded();
     }
 
+    public void EndDiggingLost()
+    {
+        Invoke(nameof(ProcessDiggingEnded), 2f);
+    }
+    
     /// <summary>
     /// 
     /// </summary>
-    public void EndDiggingLost()
+    public void ProcessDiggingEnded()
     {
-        Invoke(nameof(GoToMap), 2f);
         DestroyCurrentRock();
+        if (LevelManager.Instance.GetRemainingStones() == 0)
+        {
+            Debug.Log("All stones collected! Level complete.");
+            TimeManager.EndDay();
+        }
+        else
+        {
+            GoToMap();
+        }
     }
 
     internal void EndDiggingAborted()
     {
-        EndDiggingLost();
+        ProcessDiggingEnded();
     }
 
     public void EndGame()
@@ -174,6 +186,7 @@ public class GameManager : MonoBehaviour
     public void DestroyCurrentRock()
     {
         if (CurrentRock == null) return;
+        LevelManager.Instance.StoneCollected();
         CurrentRock.DestroyRock();
         CurrentRock = null;
     }
