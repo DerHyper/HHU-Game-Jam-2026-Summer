@@ -49,8 +49,8 @@ MonoBehaviour:
   Sprite: {fileID: 21300000, guid: 0e267d3960cd8c84eb929519a32950b3, type: 3}
   MaxValue: 100
   Level: 3
-  MaxHealth: 8
-  CurrentHealth: 8
+  MaxHealth: 5
+  CurrentHealth: 5
   CollectSound: {fileID: 8300000, guid: 4c50bc4b00221eb46a75b810864eacb2, type: 3}
   DamageSound: {fileID: 8300000, guid: 181fbdd5cc351ae44abe9252ae5a85c5, type: 3}
   DestroySound: {fileID: 8300000, guid: 803665f564ff8d942af6dda7449c2a97, type: 3}
