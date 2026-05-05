@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public MusicTrack ShopMusic;
     public MusicTrack GameFinishedMusic;
     private RockCollider _currentRock = null;
+    private GameObject _mapCamera;
     public RockCollider CurrentRock
     {
         get => _currentRock;
@@ -103,6 +104,10 @@ public class GameManager : MonoBehaviour
             Debug.Log("Replacing with map view");
             AudioManager.Instance.PlayMusic(MapDigMusic);
             GameScene.MapView.LoadSingle();
+
+            // Set MatCamera
+            _mapCamera = GameObject.FindGameObjectWithTag("MapCamera");
+        
             return;
         }
 
@@ -111,6 +116,8 @@ public class GameManager : MonoBehaviour
         {
             if (GameScene.MapView.IsLatestScene())
             {
+                // Activate Map Camera
+                _mapCamera?.SetActive(true);
                 Debug.Log("Map view already active, no need to load it again.");
                 return;
             }
@@ -122,6 +129,9 @@ public class GameManager : MonoBehaviour
 
     public void GoToDiggingView()
     {
+        // Deactivate Map Camera
+        _mapCamera?.SetActive(false);
+
         if (GameScene.MapView.IsLatestScene())
         {
             Debug.Log("Pushing the digging view");
