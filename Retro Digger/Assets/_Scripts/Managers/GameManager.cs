@@ -103,11 +103,10 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Replacing with map view");
             AudioManager.Instance.PlayMusic(MapDigMusic);
-            GameScene.MapView.LoadSingle();
 
-            // Set MatCamera
-            _mapCamera = GameObject.FindGameObjectWithTag("MapCamera");
-        
+            SceneManager.LoadSceneAsync(GameScene.MapView.ScenePath, LoadSceneMode.Single).completed += (_) =>
+                _mapCamera = GameObject.FindGameObjectWithTag("MapCamera");
+            
             return;
         }
 
