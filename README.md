@@ -1,9 +1,8 @@
 # Retro Digger
 
-**Alle 2D-Grafiken, 3D-Modelle sowie die Schrift wurden von uns selbst erstellt.**\
-\
 Hier Spielbar: https://hyperstudiosde.itch.io/retro-digger
 
+🥇 Erster Platz des [zweiten HHU-Game-Jams](https://www.cs.hhu.de/lehrstuehle-und-arbeitsgruppen/softwaretechnik-und-programmiersprachen/lehre-und-abschlussarbeiten/game-jam).
 
 ## ✨ Kurzbeschreibung und Spielziel:
 
