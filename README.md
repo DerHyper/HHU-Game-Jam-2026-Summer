@@ -43,5 +43,5 @@ Für Musik und Soundeffekte wurden Samples von https://opengameart.org/ verwende
 + Audacity
 
 ## 🖼️ Preview
-![Inventory](Docs/overworld.png)
+![Overworld](Docs/overworld.png)
 ![Digging-View](Docs/digging-view.png)
